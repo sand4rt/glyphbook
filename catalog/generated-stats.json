@@ -1,0 +1,14 @@
+{
+  "uniqueGlyphs": 10624,
+  "nerdFontNames": 10995,
+  "miniIcons": {
+    "default": 7,
+    "directory": 68,
+    "extension": 68,
+    "file": 68,
+    "editorFiletype": 971,
+    "lsp": 34,
+    "os": 17
+  },
+  "websites": 300
+}

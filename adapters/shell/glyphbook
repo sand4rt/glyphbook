@@ -1,0 +1,39 @@
+#!/usr/bin/env sh
+set -eu
+
+root=$(CDPATH= cd -- "$(dirname "$0")/../.." && pwd)
+export GLYPHBOOK_CATALOG=${GLYPHBOOK_CATALOG:-"$root/catalog/icons.json"}
+. "$root/adapters/shell/shell.sh"
+
+command=${1:-}
+case $command in
+  get)
+    shift
+    icons_get "$@"
+    ;;
+  list)
+    shift
+    icons_list "$@"
+    ;;
+  file)
+    shift
+    icons_get_file "$@"
+    ;;
+  help|-h|--help|'')
+    printf '%s\n' \
+      'Usage:' \
+      '  glyphbook get application NAME' \
+      '  glyphbook get website HOST' \
+      '  glyphbook get CATEGORY NAME' \
+      '  glyphbook list application' \
+      '  glyphbook list website' \
+      '  glyphbook list CATEGORY' \
+      '  glyphbook file PATH [FILETYPE]' \
+      '' \
+       'Categories: default, directory, extension, file, editor-filetype, lsp, os'
+    ;;
+  *)
+    printf 'unknown command: %s\n' "$command" >&2
+    exit 2
+    ;;
+esac

@@ -1,0 +1,64 @@
+name: Update catalog
+
+on:
+  schedule:
+    - cron: "0 9 * * 5"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: update-catalog
+  cancel-in-progress: true
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: DeterminateSystems/nix-installer-action@3138316df39ed29be04236d7ffc686fa525866aa
+      - run: cp flake.lock flake.lock.before
+      - run: nix flake update mini-nvim nerd-fonts simple-icons
+      - run: nix run .#generate
+      - name: Verify deterministic generation
+        run: |
+          first=$(sha256sum catalog/icons.json catalog/generated-stats.json)
+          nix run .#generate
+          second=$(sha256sum catalog/icons.json catalog/generated-stats.json)
+          test "$first" = "$second"
+      - run: nix flake check
+      - run: ./scripts/update-report.sh flake.lock.before update-report.md
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: catalog-update
+          path: |
+            flake.lock
+            catalog/icons.json
+            catalog/generated-stats.json
+            update-report.md
+
+  pull-request:
+    needs: generate
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333
+        with:
+          name: catalog-update
+      - uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1
+        with:
+          branch: automation/update-catalog
+          delete-branch: true
+          commit-message: "update generated icon catalog"
+          title: "Update generated icon catalog"
+          body-path: update-report.md
+          add-paths: |
+            flake.lock
+            catalog/icons.json
+            catalog/generated-stats.json

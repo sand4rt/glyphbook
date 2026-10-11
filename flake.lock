@@ -1,0 +1,150 @@
+{
+  "nodes": {
+    "flake-compat": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1777699697,
+        "narHash": "sha256-Eg9b/rq/ECYwNwEXs5i9wHyhxNI0JrYx2srdI2uZMaQ=",
+        "ref": "refs/heads/main",
+        "rev": "382052b74656a369c5408822af3f2501e9b1af81",
+        "revCount": 94,
+        "type": "git",
+        "url": "https://git.lix.systems/lix-project/flake-compat.git"
+      },
+      "original": {
+        "type": "git",
+        "url": "https://git.lix.systems/lix-project/flake-compat.git"
+      }
+    },
+    "home-manager": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1791642191,
+        "narHash": "sha256-0bK0A59rVUn1SRZzo4cNi4VSqAe7vR1gL2/MZl53Frw=",
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "rev": "c58f54c733a7894d84fa2fdff26cc12088c4b78c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "type": "github"
+      }
+    },
+    "mini-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1791558529,
+        "narHash": "sha256-tTbFbBDTNSEJYloJmNeNbtiR4bh3/9tlOxUL/RsYaFY=",
+        "owner": "nvim-mini",
+        "repo": "mini.nvim",
+        "rev": "9ee72c26ac1440ee6c95ce708c1d739684be316a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nvim-mini",
+        "repo": "mini.nvim",
+        "type": "github"
+      }
+    },
+    "mnw": {
+      "locked": {
+        "lastModified": 1780772958,
+        "narHash": "sha256-VKKe8r4pwCGWZ3Yr9CPN129R4S3CKLSrlYqdYz3vKpM=",
+        "owner": "Gerg-L",
+        "repo": "mnw",
+        "rev": "0871dbf63a53610c95db04439ed8ea4d6ec9c160",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Gerg-L",
+        "repo": "mnw",
+        "type": "github"
+      }
+    },
+    "nerd-fonts": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-/p+mmNj2TLm5wXczEu46W/6iUU5nLad9tV0zoTP1jeg=",
+        "type": "file",
+        "url": "https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/glyphnames.json"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/glyphnames.json"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1791594108,
+        "narHash": "sha256-XK4KceonkwD8LuMAt/vNrz982mXJM5jeHAxMwsUXXAQ=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "6510408d147d8c5e6d76043e899e9251756f6a75",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nvf": {
+      "inputs": {
+        "flake-compat": "flake-compat",
+        "mnw": "mnw",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1787775400,
+        "narHash": "sha256-+tra2KJ+ffDZtL90tuLcX1Dc531u/k4/N56x1q0DWQ4=",
+        "owner": "NotAShelf",
+        "repo": "nvf",
+        "rev": "4cb74eac3fdfb9cce10f7e625950f9e623dca110",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NotAShelf",
+        "ref": "4cb74ea",
+        "repo": "nvf",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "home-manager": "home-manager",
+        "mini-nvim": "mini-nvim",
+        "nerd-fonts": "nerd-fonts",
+        "nixpkgs": "nixpkgs",
+        "nvf": "nvf",
+        "simple-icons": "simple-icons"
+      }
+    },
+    "simple-icons": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1791680490,
+        "narHash": "sha256-3BtvB42wtLA/2Ss3BcSq99RDVs5BjtbAuER3F96Xesc=",
+        "owner": "simple-icons",
+        "repo": "simple-icons",
+        "rev": "dc7b10662a0a2cfdfc9305e2a2b06c023c30724a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "simple-icons",
+        "repo": "simple-icons",
+        "type": "github"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}

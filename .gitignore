@@ -1,0 +1,6 @@
+.direnv/
+result
+result-*
+update-report.md
+website-health.md
+flake.lock.before
