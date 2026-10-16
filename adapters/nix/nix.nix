@@ -30,6 +30,7 @@ let
   websiteFallback = builtins.head (
     builtins.filter (icon: builtins.elem "*" (icon.domains or [ ])) configuredIcons
   );
+  reversedConfiguredIcons = builtins.foldl' (result: icon: [ icon ] ++ result) [ ] configuredIcons;
   categoryMap =
     category: field:
     let
@@ -42,11 +43,7 @@ let
               value = icon;
             }) (icon.${field} or [ ])
           )
-          (
-            builtins.genList (
-              index: builtins.elemAt configuredIcons (builtins.length configuredIcons - index - 1)
-            ) (builtins.length configuredIcons)
-          )
+          reversedConfiguredIcons
       );
     in
     records
@@ -69,6 +66,7 @@ let
   nerdFonts = categoryMap "nerdFont" "nerdFontNames";
   symbols = categoryMap "symbol" "symbols";
   websiteMap = categoryMap "website" "domains";
+  applicationMap = categoryMap "application" "applications";
   colorFor = app: icon:
     let
       appConfig = if app == null then { } else apps.${app} or { };
@@ -93,7 +91,7 @@ let
   resolve = { category, name, app ? null }:
     let
       records =
-        if category == "application" then categoryMap "application" "applications"
+        if category == "application" then applicationMap
         else if category == "website" then websiteMap
         else if category == "symbol" then symbols
         else mini.${category};
@@ -109,8 +107,8 @@ in
 catalogData
 // rec {
   icons = configuredIcons;
-  applications = categoryMap "application" "applications";
-  applicationGlyphs = builtins.mapAttrs (_: icon: icon.glyph) (categoryMap "application" "applications");
+  applications = applicationMap;
+  applicationGlyphs = builtins.mapAttrs (_: icon: icon.glyph) applicationMap;
   git = {
     modified = nerdFonts."oct-diff_modified";
     added = nerdFonts."oct-diff_added";

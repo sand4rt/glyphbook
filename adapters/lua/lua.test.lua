@@ -30,12 +30,29 @@ assert(is_fallback and fallback.glyph == '󰖟')
 local websites = glyphbook.list(catalog, 'website')
 assert(websites[1] == '*.docs.github.com' and websites[2] == '*.github.com' and websites[3] == 'github.com')
 assert(glyphbook.list(catalog, 'editor_filetype')[1] == 'lua')
+assert(glyphbook.map(catalog, 'extension')['tar.gz'].glyph == 'W')
 assert(glyphbook.get_file(catalog, 'example.lua', 'lua').glyph == 'F')
 assert(glyphbook.get_file(catalog, 'archive.tar.gz', 'lua').glyph == 'W')
+assert(glyphbook.get_file(catalog, 'archive.TAR.GZ', 'lua').glyph == 'W')
 assert(glyphbook.get_file(catalog, 'unknown.lua', 'lua').glyph == 'E')
 assert(glyphbook.get_file(catalog, '.env.local', 'lua').glyph == '')
 assert(glyphbook.get_file(catalog, 'unknown', 'lua').glyph == '')
 assert(glyphbook.get_file(catalog, 'unknown').glyph == 'D')
+
+local resolver = os.getenv('GLYPHBOOK_RESOLVER')
+if resolver then
+  local indexed = glyphbook.open({
+    resolver = resolver,
+    index = root .. '/catalog/icons.index',
+    records = root .. '/catalog/icons.records.jsonl',
+    decode = vim.json.decode,
+  })
+  assert(indexed.get_application('terminal').glyph == '󰊠')
+  assert(indexed.get_file('archive.tar.gz').glyph == '󰗄')
+  assert(indexed.get_website('docs.github.com').glyph == '')
+  assert(indexed.list('application')[1] ~= nil)
+  assert(indexed.map('extension').gz.glyph == '󰗄')
+end
 
 local samples = 100
 local catalog_size = 11000

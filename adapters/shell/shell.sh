@@ -2,6 +2,14 @@
 
 : "${GLYPHBOOK_CATALOG:?Set GLYPHBOOK_CATALOG to the icons.json path}"
 
+icons_resolver_enabled() {
+  [ -n "${GLYPHBOOK_RESOLVER:-}" ] && [ -r "${GLYPHBOOK_INDEX:-}" ] && [ -r "${GLYPHBOOK_RECORDS:-}" ]
+}
+
+icons_resolver() {
+  "$GLYPHBOOK_RESOLVER" --index "$GLYPHBOOK_INDEX" --records "$GLYPHBOOK_RECORDS" "$@"
+}
+
 icons_get() {
   (
   if [ "$#" -ne 2 ]; then
@@ -12,6 +20,18 @@ icons_get() {
   category=$1
   name=$2
   icons_catalog=$GLYPHBOOK_CATALOG
+
+  if icons_resolver_enabled; then
+    case $category in
+      website) icons_resolver website "$name" ;;
+      default|directory|extension|file|editor-filetype|lsp|os|application) icons_resolver get "$category" "$name" ;;
+      *)
+        printf 'unknown icon category: %s\n' "$category" >&2
+        return 2
+        ;;
+    esac
+    return
+  fi
 
   case $category in
     application)
@@ -28,10 +48,22 @@ icons_get() {
       name=${name##*@}
       name=${name%%:*}
       jq -er --arg host "$name" '
-        first(.icons[] | select(any(.domains[]?; . == $host))) //
-        ([.icons[] | select(any(.domains[]?; . as $domain | ($domain | startswith("*.")) and ($domain[2:] as $suffix | $host | endswith("." + $suffix))))]
-          | max_by(.domains[] | select(startswith("*.")) | length)) //
-        first(.icons[] | select(any(.domains[]?; . == "*")))
+        reduce .icons[] as $icon (
+          { exact: null, wildcard: null, wildcardLength: 0, fallback: null };
+          reduce ($icon.domains[]?) as $domain (
+            .;
+            if $domain == $host and .exact == null then .exact = $icon
+            elif $domain == "*" then .fallback = $icon
+            elif ($domain | startswith("*.")) then
+              ($domain[2:]) as $suffix
+              | if ($host | endswith("." + $suffix)) and ($suffix | length) > .wildcardLength then
+                  .wildcard = $icon | .wildcardLength = ($suffix | length)
+                else .
+                end
+            else .
+            end
+          )
+        ) | .exact // .wildcard // .fallback
       ' "$icons_catalog"
       ;;
     default|directory|extension|file|editor-filetype|lsp|os)
@@ -65,6 +97,23 @@ icons_list() {
   fi
 
   case $1 in
+    *)
+      if icons_resolver_enabled; then
+        case $1 in
+          application|website|default|directory|extension|file|editor-filetype|lsp|os)
+            icons_resolver list "$1"
+            return
+            ;;
+          *)
+            printf 'unknown icon category: %s\n' "$1" >&2
+            return 2
+            ;;
+        esac
+      fi
+      ;;
+  esac
+
+  case $1 in
     application) jq -r '.icons[].applications[]?' "$GLYPHBOOK_CATALOG" | LC_ALL=C sort -u ;;
     website) jq -r '.icons[].domains[]? | select(. != "*")' "$GLYPHBOOK_CATALOG" | LC_ALL=C sort -u ;;
     default|directory|extension|file|editor-filetype|lsp|os)
@@ -95,33 +144,36 @@ icons_get_file() {
   fi
 
   name=${1##*/}
-  exact=$(icons_get file "$name" 2>/dev/null || true)
-  if [ -n "$exact" ]; then
-    printf '%s\n' "$exact"
+  filetype=${2-}
+  if icons_resolver_enabled; then
+    if [ "$#" -eq 2 ]; then
+      icons_resolver file "$name" "$filetype"
+    else
+      icons_resolver file "$name"
+    fi
     return
   fi
-
-  suffix=${name#*.}
-  while [ "$suffix" != "$name" ]; do
-    icon=$(icons_get extension "$suffix" 2>/dev/null || true)
-    if [ -n "$icon" ]; then
-      printf '%s\n' "$icon"
-      return
-    fi
-    case $suffix in
-      *.*) suffix=${suffix#*.} ;;
-      *) break ;;
-    esac
-  done
-
-  if [ "$#" -eq 2 ]; then
-    filetype=$(icons_get editor-filetype "$2" 2>/dev/null || true)
-    if [ -n "$filetype" ]; then
-      printf '%s\n' "$filetype"
-      return
-    fi
-  fi
-
-  icons_get default file
+  jq -er --arg name "$name" --arg filetype "$filetype" '
+    def suffixes($name):
+      ($name | split(".")) as $parts
+      | if ($parts | length) < 2 then []
+        else [range(1; $parts | length) as $index | $parts[$index:] | join(".") | ascii_downcase]
+        end;
+    reduce .icons[] as $icon (
+      { files: {}, extensions: {}, filetypes: {}, defaults: {} };
+      reduce ($icon.files[]?) as $matcher (.;
+        if .files | has($matcher) then . else .files[$matcher] = $icon end)
+      | reduce ($icon.extensions[]? | ascii_downcase) as $matcher (.;
+          if .extensions | has($matcher) then . else .extensions[$matcher] = $icon end)
+      | reduce ($icon.editorFiletypes[]? | ascii_downcase) as $matcher (.;
+          if .filetypes | has($matcher) then . else .filetypes[$matcher] = $icon end)
+      | reduce ($icon.defaults[]? | ascii_downcase) as $matcher (.;
+          if .defaults | has($matcher) then . else .defaults[$matcher] = $icon end)
+    ) as $maps
+    | $maps.files[$name]
+      // first(suffixes($name)[] as $suffix | $maps.extensions[$suffix] | select(. != null))
+      // (if $filetype == "" then null else $maps.filetypes[($filetype | ascii_downcase)] end)
+      // $maps.defaults.file
+  ' "$GLYPHBOOK_CATALOG"
   )
 }

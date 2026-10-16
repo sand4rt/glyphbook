@@ -57,17 +57,30 @@
         system:
         let
           pkgs = nixpkgs.legacyPackages.${system};
+          glyphbook-resolver = pkgs.stdenv.mkDerivation {
+            pname = "glyphbook-resolver";
+            version = "0";
+            src = ./adapters/rust/glyphbook-resolver.rs;
+            nativeBuildInputs = [ pkgs.rustc ];
+            dontUnpack = true;
+            buildPhase = "rustc $src -O -o glyphbook-resolver";
+            installPhase = "install -Dm755 glyphbook-resolver $out/bin/glyphbook-resolver";
+          };
           glyphbook = pkgs.writeShellApplication {
             name = "glyphbook";
-            runtimeInputs = [ pkgs.jq ];
+            runtimeInputs = [ glyphbook-resolver ];
             text = ''
                export GLYPHBOOK_CATALOG=${self}/catalog/icons.json
+               export GLYPHBOOK_INDEX=${self}/catalog/icons.index
+               export GLYPHBOOK_RECORDS=${self}/catalog/icons.records.jsonl
+               export GLYPHBOOK_RESOLVER=${glyphbook-resolver}/bin/glyphbook-resolver
                exec ${pkgs.dash}/bin/dash ${self}/adapters/shell/glyphbook "$@"
             '';
           };
         in
         {
           inherit glyphbook;
+          inherit glyphbook-resolver;
           default = glyphbook;
         }
       );
@@ -79,14 +92,20 @@
         generate = {
           type = "app";
           program = "${
-            nixpkgs.legacyPackages.${system}.writeShellApplication {
+            let
+              pkgs = nixpkgs.legacyPackages.${system};
+              resolver = self.packages.${system}.glyphbook-resolver;
+            in
+            pkgs.writeShellApplication {
               name = "glyphbook-generate";
-              runtimeInputs = with nixpkgs.legacyPackages.${system}; [
+              runtimeInputs = with pkgs; [
                 jq
                 neovim
+                resolver
               ];
               text = ''
                 export GLYPHBOOK_ROOT="$PWD"
+                export GLYPHBOOK_RESOLVER=${resolver}/bin/glyphbook-resolver
                 exec ${self}/scripts/generate.sh ${mini-nvim} ${nerd-fonts} ${simple-icons}/data/simple-icons.json
               '';
             }

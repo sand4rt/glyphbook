@@ -30,15 +30,16 @@ local Glyphbook checkout. Load this from `init.lua`:
 
 ```lua
 local glyphbook = require('glyphbook')
-local catalog = glyphbook.load(
-  vim.fn.expand('~/src/glyphbook/catalog/icons.json'),
-  vim.json.decode
-)
+local catalog = glyphbook.open({
+  resolver = vim.fn.expand('~/src/glyphbook/result/bin/glyphbook-resolver'),
+  index = vim.fn.expand('~/src/glyphbook/catalog/icons.index'),
+  records = vim.fn.expand('~/src/glyphbook/catalog/icons.records.jsonl'),
+  decode = vim.json.decode,
+})
 
 local function icons(category)
   local result = {}
-  for _, name in ipairs(glyphbook.list(catalog, category)) do
-    local icon = glyphbook.get(catalog, category, name)
+  for name, icon in pairs(catalog.map(category)) do
     result[name] = { glyph = icon.glyph }
   end
   return result

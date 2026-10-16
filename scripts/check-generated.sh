@@ -2,9 +2,9 @@
 set -euo pipefail
 
 root=$(cd "$(dirname "$0")/.." && pwd)
-before=$(sha256sum "$root/catalog/icons.json" "$root/catalog/generated-stats.json")
+before=$(sha256sum "$root/catalog/icons.json" "$root/catalog/icons.records.jsonl" "$root/catalog/icons.index" "$root/catalog/generated-stats.json")
 nix run "$root#generate"
-after=$(sha256sum "$root/catalog/icons.json" "$root/catalog/generated-stats.json")
+after=$(sha256sum "$root/catalog/icons.json" "$root/catalog/icons.records.jsonl" "$root/catalog/icons.index" "$root/catalog/generated-stats.json")
 
 if [[ $before != "$after" ]]; then
   printf 'generated catalog is stale; run nix run .#generate\n' >&2

@@ -10,6 +10,7 @@ root=${GLYPHBOOK_ROOT:-$(cd "$(dirname "$0")/.." && pwd)}
 mini=$1
 glyphnames=$2
 simple_icons=$3
+resolver=${GLYPHBOOK_RESOLVER:-}
 temporary=$(mktemp -d)
 trap 'rm -rf "$temporary"' EXIT
 
@@ -49,6 +50,35 @@ format_catalog() {
   done
 
   printf '  ]\n}\n'
+}
+
+generate_lookup_index() {
+  if [[ -z $resolver ]]; then
+    return
+  fi
+
+  jq -c '.icons[]' "$root/catalog/icons.json" > "$temporary/icons.records.jsonl"
+  jq -r '
+    .icons | to_entries[]
+    | .key as $record
+    | .value
+    | ([.applications[]? | ["application", ., $record]] +
+       [.defaults[]? | ["default", ., $record]] +
+       [.directories[]? | ["directory", ., $record]] +
+       [.extensions[]? | ["extension", ., $record]] +
+       [.files[]? | ["file", ., $record]] +
+       [.editorFiletypes[]? | ["editor-filetype", ., $record]] +
+       [.lsp[]? | ["lsp", ., $record]] +
+       [.operatingSystems[]? | ["os", ., $record]] +
+       [.domains[]? | if . == "*" then ["website-fallback", ., $record]
+         elif startswith("*.") then ["website-wildcard", .[2:], $record]
+         else ["website", ., $record]
+         end])[]
+    | @tsv
+  ' "$root/catalog/icons.json" > "$temporary/icons.matchers.tsv"
+  "$resolver" --build "$temporary/icons.records.jsonl" "$temporary/icons.matchers.tsv" "$temporary/icons.index"
+  mv "$temporary/icons.records.jsonl" "$root/catalog/icons.records.jsonl"
+  mv "$temporary/icons.index" "$root/catalog/icons.index"
 }
 
 GLYPHBOOK_MINI_NVIM=$mini \
@@ -138,6 +168,7 @@ jq \
 format_catalog "$temporary/icons.unformatted.json" > "$temporary/icons.json"
 
 mv "$temporary/icons.json" "$root/catalog/icons.json"
+generate_lookup_index
 
 jq -n \
   --slurpfile catalog "$root/catalog/icons.json" \

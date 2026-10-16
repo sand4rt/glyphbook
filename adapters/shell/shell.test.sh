@@ -89,6 +89,11 @@ GLYPHBOOK_CATALOG=$catalog
 export GLYPHBOOK_CATALOG
 . "$root/adapters/shell/shell.sh"
 
+if [ -n "${GLYPHBOOK_RESOLVER:-}" ]; then
+  export GLYPHBOOK_INDEX=${GLYPHBOOK_INDEX:-"$root/catalog/icons.index"}
+  export GLYPHBOOK_RECORDS=${GLYPHBOOK_RECORDS:-"$root/catalog/icons.records.jsonl"}
+fi
+
 test "$(icons_get application terminal | jq -r .glyph)" = "󰊠"
 icons_get website github.com | jq -e '.domains | index("github.com")' >/dev/null
 icons_get website raw.githubusercontent.com | jq -e '.domains | index("raw.githubusercontent.com")' >/dev/null
@@ -205,13 +210,21 @@ jq -n '{icons: [
   {glyph:"T", editorFiletypes:["lua"]},
   {glyph:"D", defaults:["file"]}
 ]}' > "$priority_catalog"
+indexed_catalog=${GLYPHBOOK_INDEX:-}
+indexed_records=${GLYPHBOOK_RECORDS:-}
+unset GLYPHBOOK_INDEX GLYPHBOOK_RECORDS
 GLYPHBOOK_CATALOG=$priority_catalog
 test "$(icons_get_file example.lua lua | jq -r .glyph)" = F
 test "$(icons_get_file archive.tar.gz lua | jq -r .glyph)" = W
+test "$(icons_get_file archive.TAR.GZ lua | jq -r .glyph)" = W
 test "$(icons_get_file unknown.lua lua | jq -r .glyph)" = E
 test "$(icons_get_file unknown lua | jq -r .glyph)" = T
 test "$(icons_get_file unknown | jq -r .glyph)" = D
 GLYPHBOOK_CATALOG=$catalog
+if [ -n "$indexed_catalog" ]; then
+  export GLYPHBOOK_INDEX=$indexed_catalog
+  export GLYPHBOOK_RECORDS=$indexed_records
+fi
 
 if [ "${GLYPHBOOK_SKIP_NIX_TEST:-0}" != 1 ]; then
   override=$(nix-instantiate --eval --strict --json -E \
