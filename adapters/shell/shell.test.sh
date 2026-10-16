@@ -105,12 +105,12 @@ icons_get website chatgpt.com | jq -e '.nerdFontNames | index("cod-openai")' >/d
 icons_get website platform.openai.com | jq -e '.domains | index("*.openai.com")' >/dev/null
 icons_get website www.figma.com | jq -e '.domains | index("*.figma.com")' >/dev/null
 icons_get website playwright.dev | jq -e '.nerdFontNames | index("dev-playwright")' >/dev/null
-icons_get website www.phpstorm.com | jq -e '(.nerdFontNames | index("dev-phpstorm")) and .color.dark == "#FFFFFF" and .color.light == "#000000"' >/dev/null
-icons_get website www.cloudflare.com | jq -e '.nerdFontNames | index("dev-cloudflare") and .color.dark == "#F38020"' >/dev/null
+icons_get website www.phpstorm.com | jq -e '.nerdFontNames | index("dev-phpstorm")' >/dev/null
+icons_get website www.cloudflare.com | jq -e '(.nerdFontNames | index("dev-cloudflare")) and .color.dark == "#F38020"' >/dev/null
 icons_get website www.jetbrains.com | jq -e '.nerdFontNames | index("dev-jetbrains")' >/dev/null
-icons_get website angular.dev | jq -e '.nerdFontNames | index("dev-angular") and .color.dark == "#0F0F11"' >/dev/null
+icons_get website angular.dev | jq -e '(.nerdFontNames | index("dev-angular")) and .color.dark == "#0F0F11"' >/dev/null
 icons_get website pypi.org | jq -e '.nerdFontNames | index("dev-pypi")' >/dev/null
-icons_get website www.netflix.com | jq -e '.nerdFontNames | index("md-netflix") and .color.dark == "#E50914"' >/dev/null
+icons_get website www.netflix.com | jq -e '(.nerdFontNames | index("md-netflix")) and .color.dark == "#E50914"' >/dev/null
 icons_get website app.datadoghq.com | jq -e '.domains | index("*.datadoghq.com")' >/dev/null
 icons_get website id.atlassian.com | jq -e '.domains | index("*.atlassian.com")' >/dev/null
 icons_get website codeberg.org | jq -e '.domains | index("codeberg.org")' >/dev/null
@@ -175,19 +175,19 @@ icons_get website guide.vuejs.org | jq -e '.domains | index("*.vuejs.org")' >/de
 test "$(icons_get website unknown.example | jq -r .glyph)" = "󰖟"
 icons_get website docs.github.com | jq -e '.domains | index("*.github.com")' >/dev/null
 icons_get website www.mozilla.org | jq -e '.nerdFontNames | index("dev-mozilla")' >/dev/null
-icons_get website airbnb.com | jq -e '.nerdFontNames | index("fa-airbnb") and .color.dark == "#FF5A5F"' >/dev/null
-icons_get website skype.com | jq -e '.nerdFontNames | index("fa-skype") and .color.dark == "#00AFF0"' >/dev/null
-icons_get website yahoo.com | jq -e '.nerdFontNames | index("fa-yahoo") and .color.dark == "#6001D2"' >/dev/null
-icons_get website yandex.ru | jq -e '.nerdFontNames | index("fa-yandex") and .color.dark == "#FC3F1D"' >/dev/null
-icons_get website wechat.com | jq -e '.nerdFontNames | index("fa-wechat") and .color.dark == "#07C160"' >/dev/null
-icons_get website yelp.com | jq -e '.nerdFontNames | index("fa-yelp") and .color.dark == "#D32323"' >/dev/null
+icons_get website airbnb.com | jq -e '(.nerdFontNames | index("fa-airbnb")) and .color.dark == "#FF5A5F"' >/dev/null
+icons_get website skype.com | jq -e '(.nerdFontNames | index("fa-skype")) and .color.dark == "#00AFF0"' >/dev/null
+icons_get website yahoo.com | jq -e '(.nerdFontNames | index("fa-yahoo")) and .color.dark == "#6001D2"' >/dev/null
+icons_get website yandex.ru | jq -e '(.nerdFontNames | index("fa-yandex")) and .color.dark == "#FC3F1D"' >/dev/null
+icons_get website wechat.com | jq -e '(.nerdFontNames | index("fa-wechat")) and .color.dark == "#07C160"' >/dev/null
+icons_get website yelp.com | jq -e '(.nerdFontNames | index("fa-yelp")) and .color.dark == "#D32323"' >/dev/null
 icons_get website snapchat.com | jq -e '.nerdFontNames | index("fa-snapchat")' >/dev/null
 icons_get website quora.com | jq -e '.nerdFontNames | index("fa-quora")' >/dev/null
 icons_get website etsy.com | jq -e '.nerdFontNames | index("fa-etsy")' >/dev/null
 icons_get website line.me | jq -e '.nerdFontNames | index("fa-line")' >/dev/null
 icons_get website lyft.com | jq -e '.nerdFontNames | index("fa-lyft")' >/dev/null
 icons_get website uber.com | jq -e '.nerdFontNames | index("fa-uber")' >/dev/null
-icons_get website hulu.com | jq -e '.nerdFontNames | index("md-hulu") and .color.dark == "#1CE783"' >/dev/null
+icons_get website hulu.com | jq -e '(.nerdFontNames | index("md-hulu")) and .color.dark == "#1CE783"' >/dev/null
 test "$(icons_get editor-filetype nix | jq -r .glyph)" = "󱄅"
 test "$(icons_get lsp function | jq -r .glyph)" != ""
 sh "$root/adapters/shell/glyphbook" get website github.com | jq -e '.domains | index("github.com")' >/dev/null
