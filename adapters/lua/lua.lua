@@ -74,6 +74,7 @@ end
 
 function M.get_website(catalog, host)
   host = host:lower()
+  host = host:gsub('^%a[%w+.-]*://', ''):gsub('[/?#].*$', ''):gsub('^.-@', ''):gsub(':%d+$', '')
   local wildcard, wildcard_length, fallback
   for _, website in ipairs(catalog.icons) do
     for _, domain in ipairs(website.domains or {}) do

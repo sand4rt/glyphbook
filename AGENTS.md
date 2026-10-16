@@ -15,11 +15,17 @@ the catalog, resolver, generators, or application integrations.
 - Apps can set a color policy. For example, Rofi can use monochrome muted icons
   while explicit per-icon colors still win.
 - Stylix is a theme provider, not a core dependency. Its integration supplies
-  normalized named colors to the resolver; non-Nix consumers can supply the
-  same theme values themselves.
+  normalized named colors to the resolver; non-Nix consumers can supply the same
+  theme values themselves.
 - File matching follows MiniIcons priority exactly: exact basename, widest
   compound extension, narrower extension, detected editor filetype, then file
   default.
+- Prefer Nerd Font classes in this order for curated semantic choices:
+  `nf-md-*`, `nf-dev-*`, `nf-seti-*`, then `nf-custom-*`. Material Design glyphs
+  generally have more deliberate Unicode assignments and render at the correct
+  double width in Kitty; Devicons offer broad brand coverage, Seti has
+  up-to-date extension icons, and Custom glyphs are niche.
+
 - `extensions` are filesystem suffixes. `editorFiletypes` are editor-detected
   syntax types. Never project an editor filetype into an application that only
   understands extensions, such as Yazi or lsd.
@@ -34,13 +40,13 @@ the catalog, resolver, generators, or application integrations.
   `md`, `dev`, `seti`, then `custom`.
 - Keep `nerdFontNames` for provenance and raw lookup, but application targets
   should use semantic matchers or symbols instead of hard-coded Nerd Font names.
-- `catalog/icons.json` is the single catalog. Records with semantic matchers
-  are source records; generated records without matchers must not be edited by
+- `catalog/icons.json` is the single catalog. Records with semantic matchers are
+  source records; generated records without matchers must not be edited by hand.
+- `catalog/generated-stats.json` is generated output and must not be edited by
   hand.
-- `catalog/generated-stats.json` is generated output and must not be edited by hand.
 - Adapters resolve icons and projections translate resolved records to native
-  application configuration. Projections must not reimplement lookup,
-  overrides, or color precedence.
+  application configuration. Projections must not reimplement lookup, overrides,
+  or color precedence.
 
 ## Freshness Rules
 

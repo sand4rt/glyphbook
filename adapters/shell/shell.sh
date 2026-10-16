@@ -19,6 +19,14 @@ icons_get() {
       ;;
     website)
       name=$(printf '%s' "$name" | tr '[:upper:]' '[:lower:]')
+      case $name in
+        *://*) name=${name#*://} ;;
+      esac
+      name=${name%%/*}
+      name=${name%%\?*}
+      name=${name%%\#*}
+      name=${name##*@}
+      name=${name%%:*}
       jq -er --arg host "$name" '
         first(.icons[] | select(any(.domains[]?; . == $host))) //
         ([.icons[] | select(any(.domains[]?; . as $domain | ($domain | startswith("*.")) and ($domain[2:] as $suffix | $host | endswith("." + $suffix))))]

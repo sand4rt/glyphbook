@@ -148,8 +148,8 @@
     {
       "glyph": "",
       "color": {
-        "dark": "#8B949E",
-        "light": "#000000"
+        "dark": "#FF0050",
+        "light": "#FF0050"
       },
       "domains": [
         "tiktok.com",
@@ -5428,7 +5428,11 @@
         "dark": "#5A45FF",
         "light": "#5A45FF"
       },
-      "nerdFontNames": [ "dev-adonisjs" ]
+      "nerdFontNames": [ "dev-adonisjs" ],
+      "domains": [
+        "adonisjs.com",
+        "*.adonisjs.com"
+      ]
     },
     {
       "glyph": "",
@@ -5452,7 +5456,11 @@
         "dark": "#4479A1",
         "light": "#4479A1"
       },
-      "nerdFontNames": [ "dev-mysql" ]
+      "nerdFontNames": [ "dev-mysql" ],
+      "domains": [
+        "mysql.com",
+        "*.mysql.com"
+      ]
     },
     {
       "glyph": "",
@@ -5503,7 +5511,11 @@
         "dark": "#003DFF",
         "light": "#003DFF"
       },
-      "nerdFontNames": [ "dev-algolia" ]
+      "nerdFontNames": [ "dev-algolia" ],
+      "domains": [
+        "algolia.com",
+        "*.algolia.com"
+      ]
     },
     {
       "glyph": "",
@@ -5511,7 +5523,11 @@
         "dark": "#21759B",
         "light": "#21759B"
       },
-      "nerdFontNames": [ "dev-wordpress" ]
+      "nerdFontNames": [ "dev-wordpress" ],
+      "domains": [
+        "wordpress.org",
+        "*.wordpress.org"
+      ]
     },
     {
       "glyph": "",
@@ -5530,6 +5546,10 @@
       "nerdFontNames": [
         "dev-jekyll",
         "dev-jekyll_small"
+      ],
+      "domains": [
+        "jekyllrb.com",
+        "*.jekyllrb.com"
       ]
     },
     {
@@ -5538,7 +5558,11 @@
         "dark": "#3DDC84",
         "light": "#3DDC84"
       },
-      "nerdFontNames": [ "dev-android" ]
+      "nerdFontNames": [ "dev-android" ],
+      "domains": [
+        "android.com",
+        "*.android.com"
+      ]
     },
     {
       "glyph": "",
@@ -5578,7 +5602,11 @@
         "dark": "#8BC0D0",
         "light": "#8BC0D0"
       },
-      "nerdFontNames": [ "dev-alpinejs" ]
+      "nerdFontNames": [ "dev-alpinejs" ],
+      "domains": [
+        "alpinejs.dev",
+        "*.alpinejs.dev"
+      ]
     },
     {
       "glyph": "",
@@ -5594,7 +5622,11 @@
         "dark": "#44A833",
         "light": "#44A833"
       },
-      "nerdFontNames": [ "dev-anaconda" ]
+      "nerdFontNames": [ "dev-anaconda" ],
+      "domains": [
+        "anaconda.com",
+        "*.anaconda.com"
+      ]
     },
     {
       "glyph": "",
@@ -5643,18 +5675,26 @@
     {
       "glyph": "",
       "color": {
-        "dark": "#8B949E",
-        "light": "#8B949E"
+        "dark": "#E04E39",
+        "light": "#E04E39"
       },
-      "nerdFontNames": [ "dev-ember" ]
+      "nerdFontNames": [ "dev-ember" ],
+      "domains": [
+        "emberjs.com",
+        "*.emberjs.com"
+      ]
     },
     {
       "glyph": "",
       "color": {
-        "dark": "#8B949E",
-        "light": "#8B949E"
+        "dark": "#E23237",
+        "light": "#E23237"
       },
-      "nerdFontNames": [ "dev-angularjs" ]
+      "nerdFontNames": [ "dev-angularjs" ],
+      "domains": [
+        "angularjs.org",
+        "*.angularjs.org"
+      ]
     },
     {
       "glyph": "",
@@ -5663,6 +5703,10 @@
         "light": "#22C55E"
       },
       "nerdFontNames": [ "dev-django" ],
+      "domains": [
+        "djangoproject.com",
+        "*.djangoproject.com"
+      ],
       "editorFiletypes": [ "django" ]
     },
     {
@@ -5710,7 +5754,11 @@
         "dark": "#A22846",
         "light": "#A22846"
       },
-      "nerdFontNames": [ "dev-raspberry_pi" ]
+      "nerdFontNames": [ "dev-raspberry_pi" ],
+      "domains": [
+        "raspberrypi.com",
+        "*.raspberrypi.com"
+      ]
     },
     {
       "glyph": "",
@@ -5718,7 +5766,11 @@
         "dark": "#EE0000",
         "light": "#EE0000"
       },
-      "nerdFontNames": [ "dev-ansible" ]
+      "nerdFontNames": [ "dev-ansible" ],
+      "domains": [
+        "ansible.com",
+        "*.ansible.com"
+      ]
     },
     {
       "glyph": "",
@@ -5782,7 +5834,11 @@
         "dark": "#D22128",
         "light": "#D22128"
       },
-      "nerdFontNames": [ "dev-apache" ]
+      "nerdFontNames": [ "dev-apache" ],
+      "domains": [
+        "apache.org",
+        "*.apache.org"
+      ]
     },
     {
       "glyph": "",
@@ -5790,7 +5846,8 @@
         "dark": "#017CEE",
         "light": "#017CEE"
       },
-      "nerdFontNames": [ "dev-apacheairflow" ]
+      "nerdFontNames": [ "dev-apacheairflow" ],
+      "domains": [ "airflow.apache.org" ]
     },
     {
       "glyph": "",
@@ -5806,7 +5863,8 @@
         "dark": "#231F20",
         "light": "#231F20"
       },
-      "nerdFontNames": [ "dev-apachekafka" ]
+      "nerdFontNames": [ "dev-apachekafka" ],
+      "domains": [ "kafka.apache.org" ]
     },
     {
       "glyph": "",
@@ -5814,7 +5872,8 @@
         "dark": "#E25A1C",
         "light": "#E25A1C"
       },
-      "nerdFontNames": [ "dev-apachespark" ]
+      "nerdFontNames": [ "dev-apachespark" ],
+      "domains": [ "spark.apache.org" ]
     },
     {
       "glyph": "",
@@ -5830,7 +5889,11 @@
         "dark": "#FD366E",
         "light": "#FD366E"
       },
-      "nerdFontNames": [ "dev-appwrite" ]
+      "nerdFontNames": [ "dev-appwrite" ],
+      "domains": [
+        "appwrite.io",
+        "*.appwrite.io"
+      ]
     },
     {
       "glyph": "",
@@ -5846,15 +5909,23 @@
         "dark": "#00878F",
         "light": "#00878F"
       },
-      "nerdFontNames": [ "dev-arduino" ]
+      "nerdFontNames": [ "dev-arduino" ],
+      "domains": [
+        "arduino.cc",
+        "*.arduino.cc"
+      ]
     },
     {
       "glyph": "",
       "color": {
-        "dark": "#8B949E",
-        "light": "#8B949E"
+        "dark": "#EF7B4D",
+        "light": "#EF7B4D"
       },
-      "nerdFontNames": [ "dev-argocd" ]
+      "nerdFontNames": [ "dev-argocd" ],
+      "domains": [
+        "argoproj.github.io",
+        "*.argoproj.github.io"
+      ]
     },
     {
       "glyph": "",
@@ -5862,7 +5933,11 @@
         "dark": "#BC52EE",
         "light": "#BC52EE"
       },
-      "nerdFontNames": [ "dev-astro" ]
+      "nerdFontNames": [ "dev-astro" ],
+      "domains": [
+        "astro.build",
+        "*.astro.build"
+      ]
     },
     {
       "glyph": "",
@@ -5879,6 +5954,10 @@
         "light": "#F97316"
       },
       "nerdFontNames": [ "dev-scala" ],
+      "domains": [
+        "scala-lang.org",
+        "*.scala-lang.org"
+      ],
       "editorFiletypes": [
         "sbt",
         "scala"
@@ -5925,13 +6004,7 @@
         "dark": "#3775A9",
         "light": "#3775A9"
       },
-      "nerdFontNames": [ "dev-python" ],
-      "domains": [
-        "pypi.org",
-        "python.org",
-        "*.pypi.org",
-        "*.python.org"
-      ]
+      "nerdFontNames": [ "dev-python" ]
     },
     {
       "glyph": "",
@@ -5955,15 +6028,23 @@
         "dark": "#FF2D20",
         "light": "#FF2D20"
       },
-      "nerdFontNames": [ "dev-laravel" ]
+      "nerdFontNames": [ "dev-laravel" ],
+      "domains": [
+        "laravel.com",
+        "*.laravel.com"
+      ]
     },
     {
       "glyph": "",
       "color": {
-        "dark": "#8B949E",
-        "light": "#8B949E"
+        "dark": "#EE672F",
+        "light": "#EE672F"
       },
-      "nerdFontNames": [ "dev-magento" ]
+      "nerdFontNames": [ "dev-magento" ],
+      "domains": [
+        "magento.com",
+        "*.magento.com"
+      ]
     },
     {
       "glyph": "",
@@ -5979,7 +6060,11 @@
         "dark": "#0678BE",
         "light": "#0678BE"
       },
-      "nerdFontNames": [ "dev-drupal" ]
+      "nerdFontNames": [ "dev-drupal" ],
+      "domains": [
+        "drupal.org",
+        "*.drupal.org"
+      ]
     },
     {
       "glyph": "",
@@ -6003,11 +6088,7 @@
         "dark": "#E50914",
         "light": "#E50914"
       },
-      "nerdFontNames": [ "dev-firefox" ],
-      "domains": [
-        "netflix.com",
-        "*.netflix.com"
-      ]
+      "nerdFontNames": [ "dev-firefox" ]
     },
     {
       "glyph": "",
@@ -6023,7 +6104,11 @@
         "dark": "#7952B3",
         "light": "#7952B3"
       },
-      "nerdFontNames": [ "dev-bootstrap" ]
+      "nerdFontNames": [ "dev-bootstrap" ],
+      "domains": [
+        "getbootstrap.com",
+        "*.getbootstrap.com"
+      ]
     },
     {
       "glyph": "",
@@ -6055,7 +6140,11 @@
         "dark": "#CC6699",
         "light": "#CC6699"
       },
-      "nerdFontNames": [ "dev-sass" ]
+      "nerdFontNames": [ "dev-sass" ],
+      "domains": [
+        "sass-lang.com",
+        "*.sass-lang.com"
+      ]
     },
     {
       "glyph": "",
@@ -6063,7 +6152,11 @@
         "dark": "#FAA918",
         "light": "#FAA918"
       },
-      "nerdFontNames": [ "dev-grunt" ]
+      "nerdFontNames": [ "dev-grunt" ],
+      "domains": [
+        "gruntjs.com",
+        "*.gruntjs.com"
+      ]
     },
     {
       "glyph": "",
@@ -6095,7 +6188,11 @@
         "dark": "#0769AD",
         "light": "#0769AD"
       },
-      "nerdFontNames": [ "dev-jquery" ]
+      "nerdFontNames": [ "dev-jquery" ],
+      "domains": [
+        "jquery.com",
+        "*.jquery.com"
+      ]
     },
     {
       "glyph": "",
@@ -6114,17 +6211,23 @@
       "nerdFontNames": [
         "dev-backbone",
         "dev-backbonejs"
+      ],
+      "domains": [
+        "backbonejs.org",
+        "*.backbonejs.org"
       ]
     },
     {
       "glyph": "",
       "color": {
-        "dark": "#8B949E",
+        "dark": "#0F0F11",
         "light": "#0F0F11"
       },
       "nerdFontNames": [ "dev-angular" ],
       "domains": [
+        "angular.dev",
         "angular.io",
+        "*.angular.dev",
         "*.angular.io"
       ]
     },
@@ -6161,6 +6264,10 @@
       "nerdFontNames": [
         "dev-symfony",
         "dev-symfony_badge"
+      ],
+      "domains": [
+        "symfony.com",
+        "*.symfony.com"
       ]
     },
     {
@@ -6209,7 +6316,11 @@
         "dark": "#F9DC3E",
         "light": "#F9DC3E"
       },
-      "nerdFontNames": [ "dev-babel" ]
+      "nerdFontNames": [ "dev-babel" ],
+      "domains": [
+        "babeljs.io",
+        "*.babeljs.io"
+      ]
     },
     {
       "glyph": "",
@@ -6257,7 +6368,11 @@
         "dark": "#CF4647",
         "light": "#CF4647"
       },
-      "nerdFontNames": [ "dev-gulp" ]
+      "nerdFontNames": [ "dev-gulp" ],
+      "domains": [
+        "gulpjs.com",
+        "*.gulpjs.com"
+      ]
     },
     {
       "glyph": "",
@@ -6281,7 +6396,11 @@
         "dark": "#E87D0D",
         "light": "#E87D0D"
       },
-      "nerdFontNames": [ "dev-blender" ]
+      "nerdFontNames": [ "dev-blender" ],
+      "domains": [
+        "blender.org",
+        "*.blender.org"
+      ]
     },
     {
       "glyph": "",
@@ -6289,7 +6408,11 @@
         "dark": "#D24939",
         "light": "#D24939"
       },
-      "nerdFontNames": [ "dev-jenkins" ]
+      "nerdFontNames": [ "dev-jenkins" ],
+      "domains": [
+        "jenkins.io",
+        "*.jenkins.io"
+      ]
     },
     {
       "glyph": "",
@@ -6298,6 +6421,10 @@
         "light": "#22C55E"
       },
       "nerdFontNames": [ "dev-clojure" ],
+      "domains": [
+        "clojure.org",
+        "*.clojure.org"
+      ],
       "editorFiletypes": [ "clojure" ]
     },
     {
@@ -6338,7 +6465,11 @@
         "dark": "#FF4438",
         "light": "#FF4438"
       },
-      "nerdFontNames": [ "dev-redis" ]
+      "nerdFontNames": [ "dev-redis" ],
+      "domains": [
+        "redis.io",
+        "*.redis.io"
+      ]
     },
     {
       "glyph": "",
@@ -6346,7 +6477,11 @@
         "dark": "#4169E1",
         "light": "#4169E1"
       },
-      "nerdFontNames": [ "dev-postgresql" ]
+      "nerdFontNames": [ "dev-postgresql" ],
+      "domains": [
+        "postgresql.org",
+        "*.postgresql.org"
+      ]
     },
     {
       "glyph": "",
@@ -6354,7 +6489,11 @@
         "dark": "#000000",
         "light": "#000000"
       },
-      "nerdFontNames": [ "dev-bun" ]
+      "nerdFontNames": [ "dev-bun" ],
+      "domains": [
+        "bun.sh",
+        "*.bun.sh"
+      ]
     },
     {
       "glyph": "",
@@ -6381,7 +6520,11 @@
         "dark": "#FF8700",
         "light": "#FF8700"
       },
-      "nerdFontNames": [ "dev-typo3" ]
+      "nerdFontNames": [ "dev-typo3" ],
+      "domains": [
+        "typo3.org",
+        "*.typo3.org"
+      ]
     },
     {
       "glyph": "",
@@ -6414,7 +6557,11 @@
         "dark": "#009639",
         "light": "#009639"
       },
-      "nerdFontNames": [ "dev-nginx" ]
+      "nerdFontNames": [ "dev-nginx" ],
+      "domains": [
+        "nginx.org",
+        "*.nginx.org"
+      ]
     },
     {
       "glyph": "",
@@ -6451,10 +6598,14 @@
     {
       "glyph": "",
       "color": {
-        "dark": "#8B949E",
-        "light": "#8B949E"
+        "dark": "#430098",
+        "light": "#430098"
       },
-      "nerdFontNames": [ "dev-heroku" ]
+      "nerdFontNames": [ "dev-heroku" ],
+      "domains": [
+        "heroku.com",
+        "*.heroku.com"
+      ]
     },
     {
       "glyph": "",
@@ -6548,7 +6699,11 @@
         "dark": "#161616",
         "light": "#161616"
       },
-      "nerdFontNames": [ "dev-mozilla" ]
+      "nerdFontNames": [ "dev-mozilla" ],
+      "domains": [
+        "mozilla.org",
+        "*.mozilla.org"
+      ]
     },
     {
       "glyph": "",
@@ -6556,7 +6711,11 @@
         "dark": "#DD2C00",
         "light": "#DD2C00"
       },
-      "nerdFontNames": [ "dev-firebase" ]
+      "nerdFontNames": [ "dev-firebase" ],
+      "domains": [
+        "firebase.google.com",
+        "*.firebase.google.com"
+      ]
     },
     {
       "glyph": "",
@@ -6569,10 +6728,11 @@
     {
       "glyph": "",
       "color": {
-        "dark": "#8B949E",
-        "light": "#8B949E"
+        "dark": "#1287B1",
+        "light": "#1287B1"
       },
-      "nerdFontNames": [ "dev-cassandra" ]
+      "nerdFontNames": [ "dev-cassandra" ],
+      "domains": [ "cassandra.apache.org" ]
     },
     {
       "glyph": "",
@@ -6596,7 +6756,11 @@
         "dark": "#343434",
         "light": "#343434"
       },
-      "nerdFontNames": [ "dev-circleci" ]
+      "nerdFontNames": [ "dev-circleci" ],
+      "domains": [
+        "circleci.com",
+        "*.circleci.com"
+      ]
     },
     {
       "glyph": "",
@@ -6644,7 +6808,11 @@
         "dark": "#F38020",
         "light": "#F38020"
       },
-      "nerdFontNames": [ "dev-cloudflare" ]
+      "nerdFontNames": [ "dev-cloudflare" ],
+      "domains": [
+        "cloudflare.com",
+        "*.cloudflare.com"
+      ]
     },
     {
       "glyph": "",
@@ -6660,7 +6828,11 @@
         "dark": "#064F8C",
         "light": "#064F8C"
       },
-      "nerdFontNames": [ "dev-cmake" ]
+      "nerdFontNames": [ "dev-cmake" ],
+      "domains": [
+        "cmake.org",
+        "*.cmake.org"
+      ]
     },
     {
       "glyph": "",
@@ -6693,6 +6865,10 @@
         "light": "#3B82F6"
       },
       "nerdFontNames": [ "dev-dart" ],
+      "domains": [
+        "dart.dev",
+        "*.dart.dev"
+      ],
       "editorFiletypes": [ "dart" ]
     },
     {
@@ -6709,7 +6885,11 @@
         "dark": "#F24C53",
         "light": "#F24C53"
       },
-      "nerdFontNames": [ "dev-consul" ]
+      "nerdFontNames": [ "dev-consul" ],
+      "domains": [
+        "consul.io",
+        "*.consul.io"
+      ]
     },
     {
       "glyph": "",
@@ -6757,7 +6937,11 @@
         "dark": "#EA2328",
         "light": "#EA2328"
       },
-      "nerdFontNames": [ "dev-couchbase" ]
+      "nerdFontNames": [ "dev-couchbase" ],
+      "domains": [
+        "couchbase.com",
+        "*.couchbase.com"
+      ]
     },
     {
       "glyph": "",
@@ -6790,7 +6974,11 @@
         "dark": "#47A248",
         "light": "#47A248"
       },
-      "nerdFontNames": [ "dev-mongodb" ]
+      "nerdFontNames": [ "dev-mongodb" ],
+      "domains": [
+        "mongodb.com",
+        "*.mongodb.com"
+      ]
     },
     {
       "glyph": "",
@@ -6815,6 +7003,10 @@
         "light": "#3B82F6"
       },
       "nerdFontNames": [ "dev-fsharp" ],
+      "domains": [
+        "fsharp.org",
+        "*.fsharp.org"
+      ],
       "editorFiletypes": [ "fsharp" ]
     },
     {
@@ -6826,9 +7018,7 @@
       "nerdFontNames": [ "dev-rust" ],
       "domains": [
         "crates.io",
-        "rust-lang.org",
-        "*.crates.io",
-        "*.rust-lang.org"
+        "*.crates.io"
       ]
     },
     {
@@ -6861,7 +7051,11 @@
         "dark": "#000000",
         "light": "#000000"
       },
-      "nerdFontNames": [ "dev-crystal" ]
+      "nerdFontNames": [ "dev-crystal" ],
+      "domains": [
+        "crystal-lang.org",
+        "*.crystal-lang.org"
+      ]
     },
     {
       "glyph": "",
@@ -6913,6 +7107,10 @@
         "light": "#EF4444"
       },
       "nerdFontNames": [ "dev-erlang" ],
+      "domains": [
+        "erlang.org",
+        "*.erlang.org"
+      ],
       "editorFiletypes": [ "erlang" ]
     },
     {
@@ -6950,11 +7148,7 @@
         "dark": "#F38020",
         "light": "#F38020"
       },
-      "nerdFontNames": [ "dev-intellij" ],
-      "domains": [
-        "cloudflare.com",
-        "*.cloudflare.com"
-      ]
+      "nerdFontNames": [ "dev-intellij" ]
     },
     {
       "glyph": "",
@@ -6983,10 +7177,14 @@
     {
       "glyph": "",
       "color": {
-        "dark": "#8B949E",
-        "light": "#8B949E"
+        "dark": "#69D3A7",
+        "light": "#69D3A7"
       },
-      "nerdFontNames": [ "dev-cypressio" ]
+      "nerdFontNames": [ "dev-cypressio" ],
+      "domains": [
+        "cypress.io",
+        "*.cypress.io"
+      ]
     },
     {
       "glyph": "",
@@ -7039,15 +7237,23 @@
         "dark": "#382923",
         "light": "#382923"
       },
-      "nerdFontNames": [ "dev-dbeaver" ]
+      "nerdFontNames": [ "dev-dbeaver" ],
+      "domains": [
+        "dbeaver.io",
+        "*.dbeaver.io"
+      ]
     },
     {
       "glyph": "",
       "color": {
-        "dark": "#8B949E",
-        "light": "#8B949E"
+        "dark": "#000000",
+        "light": "#000000"
       },
-      "nerdFontNames": [ "dev-denojs" ]
+      "nerdFontNames": [ "dev-denojs" ],
+      "domains": [
+        "deno.com",
+        "*.deno.com"
+      ]
     },
     {
       "glyph": "",
@@ -7079,7 +7285,11 @@
         "dark": "#003B57",
         "light": "#003B57"
       },
-      "nerdFontNames": [ "dev-sqlite" ]
+      "nerdFontNames": [ "dev-sqlite" ],
+      "domains": [
+        "sqlite.org",
+        "*.sqlite.org"
+      ]
     },
     {
       "glyph": "",
@@ -7132,7 +7342,11 @@
         "dark": "#005571",
         "light": "#005571"
       },
-      "nerdFontNames": [ "dev-elasticsearch" ]
+      "nerdFontNames": [ "dev-elasticsearch" ],
+      "domains": [
+        "elastic.co",
+        "*.elastic.co"
+      ]
     },
     {
       "glyph": "",
@@ -7140,7 +7354,11 @@
         "dark": "#47848F",
         "light": "#47848F"
       },
-      "nerdFontNames": [ "dev-electron" ]
+      "nerdFontNames": [ "dev-electron" ],
+      "domains": [
+        "electronjs.org",
+        "*.electronjs.org"
+      ]
     },
     {
       "glyph": "",
@@ -7156,7 +7374,11 @@
         "dark": "#4B275F",
         "light": "#4B275F"
       },
-      "nerdFontNames": [ "dev-elixir" ]
+      "nerdFontNames": [ "dev-elixir" ],
+      "domains": [
+        "elixir-lang.org",
+        "*.elixir-lang.org"
+      ]
     },
     {
       "glyph": "",
@@ -7196,7 +7418,11 @@
         "dark": "#4B32C3",
         "light": "#4B32C3"
       },
-      "nerdFontNames": [ "dev-eslint" ]
+      "nerdFontNames": [ "dev-eslint" ],
+      "domains": [
+        "eslint.org",
+        "*.eslint.org"
+      ]
     },
     {
       "glyph": "",
@@ -7204,7 +7430,11 @@
         "dark": "#0A0A0A",
         "light": "#0A0A0A"
       },
-      "nerdFontNames": [ "dev-express" ]
+      "nerdFontNames": [ "dev-express" ],
+      "domains": [
+        "expressjs.com",
+        "*.expressjs.com"
+      ]
     },
     {
       "glyph": "",
@@ -7220,7 +7450,8 @@
         "dark": "#009688",
         "light": "#009688"
       },
-      "nerdFontNames": [ "dev-fastapi" ]
+      "nerdFontNames": [ "dev-fastapi" ],
+      "domains": [ "fastapi.tiangolo.com" ]
     },
     {
       "glyph": "",
@@ -7228,7 +7459,11 @@
         "dark": "#000000",
         "light": "#000000"
       },
-      "nerdFontNames": [ "dev-fastify" ]
+      "nerdFontNames": [ "dev-fastify" ],
+      "domains": [
+        "fastify.dev",
+        "*.fastify.dev"
+      ]
     },
     {
       "glyph": "",
@@ -7252,7 +7487,11 @@
         "dark": "#51A2DA",
         "light": "#51A2DA"
       },
-      "nerdFontNames": [ "dev-fedora" ]
+      "nerdFontNames": [ "dev-fedora" ],
+      "domains": [
+        "fedoraproject.org",
+        "*.fedoraproject.org"
+      ]
     },
     {
       "glyph": "",
@@ -7280,7 +7519,8 @@
         "dark": "#3BABC3",
         "light": "#3BABC3"
       },
-      "nerdFontNames": [ "dev-flask" ]
+      "nerdFontNames": [ "dev-flask" ],
+      "domains": [ "flask.palletsprojects.com" ]
     },
     {
       "glyph": "",
@@ -7288,7 +7528,11 @@
         "dark": "#02569B",
         "light": "#02569B"
       },
-      "nerdFontNames": [ "dev-flutter" ]
+      "nerdFontNames": [ "dev-flutter" ],
+      "domains": [
+        "flutter.dev",
+        "*.flutter.dev"
+      ]
     },
     {
       "glyph": "",
@@ -7336,7 +7580,11 @@
         "dark": "#663399",
         "light": "#663399"
       },
-      "nerdFontNames": [ "dev-gatsby" ]
+      "nerdFontNames": [ "dev-gatsby" ],
+      "domains": [
+        "gatsbyjs.com",
+        "*.gatsbyjs.com"
+      ]
     },
     {
       "glyph": "",
@@ -7376,7 +7624,11 @@
         "dark": "#BBDDE5",
         "light": "#BBDDE5"
       },
-      "nerdFontNames": [ "dev-gitbook" ]
+      "nerdFontNames": [ "dev-gitbook" ],
+      "domains": [
+        "gitbook.com",
+        "*.gitbook.com"
+      ]
     },
     {
       "glyph": "",
@@ -7408,7 +7660,11 @@
         "dark": "#FFAE33",
         "light": "#FFAE33"
       },
-      "nerdFontNames": [ "dev-gitpod" ]
+      "nerdFontNames": [ "dev-gitpod" ],
+      "domains": [
+        "gitpod.io",
+        "*.gitpod.io"
+      ]
     },
     {
       "glyph": "",
@@ -7421,10 +7677,14 @@
     {
       "glyph": "",
       "color": {
-        "dark": "#8B949E",
-        "light": "#8B949E"
+        "dark": "#478CBF",
+        "light": "#478CBF"
       },
-      "nerdFontNames": [ "dev-godot" ]
+      "nerdFontNames": [ "dev-godot" ],
+      "domains": [
+        "godotengine.org",
+        "*.godotengine.org"
+      ]
     },
     {
       "glyph": "",
@@ -7456,7 +7716,11 @@
         "dark": "#02303A",
         "light": "#02303A"
       },
-      "nerdFontNames": [ "dev-gradle" ]
+      "nerdFontNames": [ "dev-gradle" ],
+      "domains": [
+        "gradle.org",
+        "*.gradle.org"
+      ]
     },
     {
       "glyph": "",
@@ -7464,7 +7728,11 @@
         "dark": "#F46800",
         "light": "#F46800"
       },
-      "nerdFontNames": [ "dev-grafana" ]
+      "nerdFontNames": [ "dev-grafana" ],
+      "domains": [
+        "grafana.com",
+        "*.grafana.com"
+      ]
     },
     {
       "glyph": "",
@@ -7472,7 +7740,11 @@
         "dark": "#E10098",
         "light": "#E10098"
       },
-      "nerdFontNames": [ "dev-graphql" ]
+      "nerdFontNames": [ "dev-graphql" ],
+      "domains": [
+        "graphql.org",
+        "*.graphql.org"
+      ]
     },
     {
       "glyph": "",
@@ -7485,10 +7757,11 @@
     {
       "glyph": "",
       "color": {
-        "dark": "#8B949E",
-        "light": "#8B949E"
+        "dark": "#66CCFF",
+        "light": "#66CCFF"
       },
-      "nerdFontNames": [ "dev-hadoop" ]
+      "nerdFontNames": [ "dev-hadoop" ],
+      "domains": [ "hadoop.apache.org" ]
     },
     {
       "glyph": "",
@@ -7528,7 +7801,11 @@
         "dark": "#0F1689",
         "light": "#0F1689"
       },
-      "nerdFontNames": [ "dev-helm" ]
+      "nerdFontNames": [ "dev-helm" ],
+      "domains": [
+        "helm.sh",
+        "*.helm.sh"
+      ]
     },
     {
       "glyph": "",
@@ -7544,7 +7821,11 @@
         "dark": "#FBB040",
         "light": "#FBB040"
       },
-      "nerdFontNames": [ "dev-homebrew" ]
+      "nerdFontNames": [ "dev-homebrew" ],
+      "domains": [
+        "brew.sh",
+        "*.brew.sh"
+      ]
     },
     {
       "glyph": "",
@@ -7568,7 +7849,11 @@
         "dark": "#22ADF6",
         "light": "#22ADF6"
       },
-      "nerdFontNames": [ "dev-influxdb" ]
+      "nerdFontNames": [ "dev-influxdb" ],
+      "domains": [
+        "influxdata.com",
+        "*.influxdata.com"
+      ]
     },
     {
       "glyph": "",
@@ -7584,15 +7869,23 @@
         "dark": "#4000BF",
         "light": "#4000BF"
       },
-      "nerdFontNames": [ "dev-insomnia" ]
+      "nerdFontNames": [ "dev-insomnia" ],
+      "domains": [
+        "insomnia.rest",
+        "*.insomnia.rest"
+      ]
     },
     {
       "glyph": "",
       "color": {
-        "dark": "#8B949E",
-        "light": "#8B949E"
+        "dark": "#66CFE3",
+        "light": "#66CFE3"
       },
-      "nerdFontNames": [ "dev-jaegertracing" ]
+      "nerdFontNames": [ "dev-jaegertracing" ],
+      "domains": [
+        "jaegertracing.io",
+        "*.jaegertracing.io"
+      ]
     },
     {
       "glyph": "",
@@ -7624,7 +7917,11 @@
         "dark": "#C21325",
         "light": "#C21325"
       },
-      "nerdFontNames": [ "dev-jest" ]
+      "nerdFontNames": [ "dev-jest" ],
+      "domains": [
+        "jestjs.io",
+        "*.jestjs.io"
+      ]
     },
     {
       "glyph": "",
@@ -7632,7 +7929,11 @@
         "dark": "#000000",
         "light": "#000000"
       },
-      "nerdFontNames": [ "dev-jetbrains" ]
+      "nerdFontNames": [ "dev-jetbrains" ],
+      "domains": [
+        "jetbrains.com",
+        "*.jetbrains.com"
+      ]
     },
     {
       "glyph": "",
@@ -7672,7 +7973,11 @@
         "dark": "#9558B2",
         "light": "#9558B2"
       },
-      "nerdFontNames": [ "dev-julia" ]
+      "nerdFontNames": [ "dev-julia" ],
+      "domains": [
+        "julialang.org",
+        "*.julialang.org"
+      ]
     },
     {
       "glyph": "",
@@ -7688,7 +7993,11 @@
         "dark": "#F37626",
         "light": "#F37626"
       },
-      "nerdFontNames": [ "dev-jupyter" ]
+      "nerdFontNames": [ "dev-jupyter" ],
+      "domains": [
+        "jupyter.org",
+        "*.jupyter.org"
+      ]
     },
     {
       "glyph": "",
@@ -7704,7 +8013,11 @@
         "dark": "#FFC61C",
         "light": "#FFC61C"
       },
-      "nerdFontNames": [ "dev-k3s" ]
+      "nerdFontNames": [ "dev-k3s" ],
+      "domains": [
+        "k3s.io",
+        "*.k3s.io"
+      ]
     },
     {
       "glyph": "",
@@ -7712,7 +8025,11 @@
         "dark": "#7D64FF",
         "light": "#7D64FF"
       },
-      "nerdFontNames": [ "dev-k6" ]
+      "nerdFontNames": [ "dev-k6" ],
+      "domains": [
+        "k6.io",
+        "*.k6.io"
+      ]
     },
     {
       "glyph": "",
@@ -7792,7 +8109,11 @@
         "dark": "#087CFA",
         "light": "#087CFA"
       },
-      "nerdFontNames": [ "dev-ktor" ]
+      "nerdFontNames": [ "dev-ktor" ],
+      "domains": [
+        "ktor.io",
+        "*.ktor.io"
+      ]
     },
     {
       "glyph": "",
@@ -7889,7 +8210,11 @@
         "dark": "#003545",
         "light": "#003545"
       },
-      "nerdFontNames": [ "dev-mariadb" ]
+      "nerdFontNames": [ "dev-mariadb" ],
+      "domains": [
+        "mariadb.org",
+        "*.mariadb.org"
+      ]
     },
     {
       "glyph": "",
@@ -7902,10 +8227,14 @@
     {
       "glyph": "",
       "color": {
-        "dark": "#8B949E",
-        "light": "#8B949E"
+        "dark": "#0076A8",
+        "light": "#0076A8"
       },
-      "nerdFontNames": [ "dev-matlab" ]
+      "nerdFontNames": [ "dev-matlab" ],
+      "domains": [
+        "mathworks.com",
+        "*.mathworks.com"
+      ]
     },
     {
       "glyph": "",
@@ -7918,10 +8247,11 @@
     {
       "glyph": "",
       "color": {
-        "dark": "#8B949E",
-        "light": "#8B949E"
+        "dark": "#C71A36",
+        "light": "#C71A36"
       },
-      "nerdFontNames": [ "dev-maven" ]
+      "nerdFontNames": [ "dev-maven" ],
+      "domains": [ "maven.apache.org" ]
     },
     {
       "glyph": "",
@@ -7969,7 +8299,11 @@
         "dark": "#8D6748",
         "light": "#8D6748"
       },
-      "nerdFontNames": [ "dev-mocha" ]
+      "nerdFontNames": [ "dev-mocha" ],
+      "domains": [
+        "mochajs.org",
+        "*.mochajs.org"
+      ]
     },
     {
       "glyph": "",
@@ -8001,7 +8335,11 @@
         "dark": "#F98012",
         "light": "#F98012"
       },
-      "nerdFontNames": [ "dev-moodle" ]
+      "nerdFontNames": [ "dev-moodle" ],
+      "domains": [
+        "moodle.org",
+        "*.moodle.org"
+      ]
     },
     {
       "glyph": "",
@@ -8025,7 +8363,11 @@
         "dark": "#4581C3",
         "light": "#4581C3"
       },
-      "nerdFontNames": [ "dev-neo4j" ]
+      "nerdFontNames": [ "dev-neo4j" ],
+      "domains": [
+        "neo4j.com",
+        "*.neo4j.com"
+      ]
     },
     {
       "glyph": "",
@@ -8033,7 +8375,11 @@
         "dark": "#57A143",
         "light": "#57A143"
       },
-      "nerdFontNames": [ "dev-neovim" ]
+      "nerdFontNames": [ "dev-neovim" ],
+      "domains": [
+        "neovim.io",
+        "*.neovim.io"
+      ]
     },
     {
       "glyph": "",
@@ -8041,7 +8387,11 @@
         "dark": "#E0234E",
         "light": "#E0234E"
       },
-      "nerdFontNames": [ "dev-nestjs" ]
+      "nerdFontNames": [ "dev-nestjs" ],
+      "domains": [
+        "nestjs.com",
+        "*.nestjs.com"
+      ]
     },
     {
       "glyph": "",
@@ -8049,7 +8399,11 @@
         "dark": "#00C7B7",
         "light": "#00C7B7"
       },
-      "nerdFontNames": [ "dev-netlify" ]
+      "nerdFontNames": [ "dev-netlify" ],
+      "domains": [
+        "netlify.com",
+        "*.netlify.com"
+      ]
     },
     {
       "glyph": "",
@@ -8065,7 +8419,11 @@
         "dark": "#000000",
         "light": "#000000"
       },
-      "nerdFontNames": [ "dev-nextjs" ]
+      "nerdFontNames": [ "dev-nextjs" ],
+      "domains": [
+        "nextjs.org",
+        "*.nextjs.org"
+      ]
     },
     {
       "glyph": "",
@@ -8089,7 +8447,11 @@
         "dark": "#FFE953",
         "light": "#FFE953"
       },
-      "nerdFontNames": [ "dev-nim" ]
+      "nerdFontNames": [ "dev-nim" ],
+      "domains": [
+        "nim-lang.org",
+        "*.nim-lang.org"
+      ]
     },
     {
       "glyph": "",
@@ -8129,7 +8491,11 @@
         "dark": "#00CA8E",
         "light": "#00CA8E"
       },
-      "nerdFontNames": [ "dev-nomad" ]
+      "nerdFontNames": [ "dev-nomad" ],
+      "domains": [
+        "nomadproject.io",
+        "*.nomadproject.io"
+      ]
     },
     {
       "glyph": "",
@@ -8162,15 +8528,23 @@
         "dark": "#013243",
         "light": "#013243"
       },
-      "nerdFontNames": [ "dev-numpy" ]
+      "nerdFontNames": [ "dev-numpy" ],
+      "domains": [
+        "numpy.org",
+        "*.numpy.org"
+      ]
     },
     {
       "glyph": "",
       "color": {
-        "dark": "#8B949E",
-        "light": "#8B949E"
+        "dark": "#00DC82",
+        "light": "#00DC82"
       },
-      "nerdFontNames": [ "dev-nuxtjs" ]
+      "nerdFontNames": [ "dev-nuxtjs" ],
+      "domains": [
+        "nuxt.com",
+        "*.nuxt.com"
+      ]
     },
     {
       "glyph": "",
@@ -8194,7 +8568,11 @@
         "dark": "#EC6813",
         "light": "#EC6813"
       },
-      "nerdFontNames": [ "dev-ocaml" ]
+      "nerdFontNames": [ "dev-ocaml" ],
+      "domains": [
+        "ocaml.org",
+        "*.ocaml.org"
+      ]
     },
     {
       "glyph": "",
@@ -8259,7 +8637,11 @@
         "dark": "#ED1944",
         "light": "#ED1944"
       },
-      "nerdFontNames": [ "dev-openstack" ]
+      "nerdFontNames": [ "dev-openstack" ],
+      "domains": [
+        "openstack.org",
+        "*.openstack.org"
+      ]
     },
     {
       "glyph": "",
@@ -8267,7 +8649,11 @@
         "dark": "#73BA25",
         "light": "#73BA25"
       },
-      "nerdFontNames": [ "dev-opensuse" ]
+      "nerdFontNames": [ "dev-opensuse" ],
+      "domains": [
+        "opensuse.org",
+        "*.opensuse.org"
+      ]
     },
     {
       "glyph": "",
@@ -8275,15 +8661,23 @@
         "dark": "#000000",
         "light": "#000000"
       },
-      "nerdFontNames": [ "dev-opentelemetry" ]
+      "nerdFontNames": [ "dev-opentelemetry" ],
+      "domains": [
+        "opentelemetry.io",
+        "*.opentelemetry.io"
+      ]
     },
     {
       "glyph": "",
       "color": {
-        "dark": "#8B949E",
-        "light": "#8B949E"
+        "dark": "#F80000",
+        "light": "#F80000"
       },
-      "nerdFontNames": [ "dev-oracle" ]
+      "nerdFontNames": [ "dev-oracle" ],
+      "domains": [
+        "oracle.com",
+        "*.oracle.com"
+      ]
     },
     {
       "glyph": "",
@@ -8307,7 +8701,11 @@
         "dark": "#02A8EF",
         "light": "#02A8EF"
       },
-      "nerdFontNames": [ "dev-packer" ]
+      "nerdFontNames": [ "dev-packer" ],
+      "domains": [
+        "packer.io",
+        "*.packer.io"
+      ]
     },
     {
       "glyph": "",
@@ -8315,7 +8713,8 @@
         "dark": "#150458",
         "light": "#150458"
       },
-      "nerdFontNames": [ "dev-pandas" ]
+      "nerdFontNames": [ "dev-pandas" ],
+      "domains": [ "pandas.pydata.org" ]
     },
     {
       "glyph": "",
@@ -8336,10 +8735,14 @@
     {
       "glyph": "",
       "color": {
-        "dark": "#8B949E",
-        "light": "#8B949E"
+        "dark": "#FD4F00",
+        "light": "#FD4F00"
       },
-      "nerdFontNames": [ "dev-phoenix" ]
+      "nerdFontNames": [ "dev-phoenix" ],
+      "domains": [
+        "phoenixframework.org",
+        "*.phoenixframework.org"
+      ]
     },
     {
       "glyph": "",
@@ -8355,7 +8758,11 @@
         "dark": "#000000",
         "light": "#000000"
       },
-      "nerdFontNames": [ "dev-phpstorm" ]
+      "nerdFontNames": [ "dev-phpstorm" ],
+      "domains": [
+        "phpstorm.com",
+        "*.phpstorm.com"
+      ]
     },
     {
       "glyph": "",
@@ -8383,7 +8790,11 @@
         "dark": "#F69220",
         "light": "#F69220"
       },
-      "nerdFontNames": [ "dev-pnpm" ]
+      "nerdFontNames": [ "dev-pnpm" ],
+      "domains": [
+        "pnpm.io",
+        "*.pnpm.io"
+      ]
     },
     {
       "glyph": "",
@@ -8415,7 +8826,11 @@
         "dark": "#13BEF9",
         "light": "#13BEF9"
       },
-      "nerdFontNames": [ "dev-portainer" ]
+      "nerdFontNames": [ "dev-portainer" ],
+      "domains": [
+        "portainer.io",
+        "*.portainer.io"
+      ]
     },
     {
       "glyph": "",
@@ -8423,7 +8838,11 @@
         "dark": "#DD3A0A",
         "light": "#DD3A0A"
       },
-      "nerdFontNames": [ "dev-postcss" ]
+      "nerdFontNames": [ "dev-postcss" ],
+      "domains": [
+        "postcss.org",
+        "*.postcss.org"
+      ]
     },
     {
       "glyph": "",
@@ -8431,7 +8850,11 @@
         "dark": "#FF6C37",
         "light": "#FF6C37"
       },
-      "nerdFontNames": [ "dev-postman" ]
+      "nerdFontNames": [ "dev-postman" ],
+      "domains": [
+        "postman.com",
+        "*.postman.com"
+      ]
     },
     {
       "glyph": "",
@@ -8455,7 +8878,11 @@
         "dark": "#2D3748",
         "light": "#2D3748"
       },
-      "nerdFontNames": [ "dev-prisma" ]
+      "nerdFontNames": [ "dev-prisma" ],
+      "domains": [
+        "prisma.io",
+        "*.prisma.io"
+      ]
     },
     {
       "glyph": "",
@@ -8471,7 +8898,11 @@
         "dark": "#E6522C",
         "light": "#E6522C"
       },
-      "nerdFontNames": [ "dev-prometheus" ]
+      "nerdFontNames": [ "dev-prometheus" ],
+      "domains": [
+        "prometheus.io",
+        "*.prometheus.io"
+      ]
     },
     {
       "glyph": "",
@@ -8495,7 +8926,11 @@
         "dark": "#8A3391",
         "light": "#8A3391"
       },
-      "nerdFontNames": [ "dev-pulumi" ]
+      "nerdFontNames": [ "dev-pulumi" ],
+      "domains": [
+        "pulumi.com",
+        "*.pulumi.com"
+      ]
     },
     {
       "glyph": "",
@@ -8503,7 +8938,11 @@
         "dark": "#40B5A4",
         "light": "#40B5A4"
       },
-      "nerdFontNames": [ "dev-puppeteer" ]
+      "nerdFontNames": [ "dev-puppeteer" ],
+      "domains": [
+        "pptr.dev",
+        "*.pptr.dev"
+      ]
     },
     {
       "glyph": "",
@@ -8535,7 +8974,11 @@
         "dark": "#3775A9",
         "light": "#3775A9"
       },
-      "nerdFontNames": [ "dev-pypi" ]
+      "nerdFontNames": [ "dev-pypi" ],
+      "domains": [
+        "pypi.org",
+        "*.pypi.org"
+      ]
     },
     {
       "glyph": "",
@@ -8551,7 +8994,11 @@
         "dark": "#0A9EDC",
         "light": "#0A9EDC"
       },
-      "nerdFontNames": [ "dev-pytest" ]
+      "nerdFontNames": [ "dev-pytest" ],
+      "domains": [
+        "pytest.org",
+        "*.pytest.org"
+      ]
     },
     {
       "glyph": "",
@@ -8559,7 +9006,11 @@
         "dark": "#EE4C2C",
         "light": "#EE4C2C"
       },
-      "nerdFontNames": [ "dev-pytorch" ]
+      "nerdFontNames": [ "dev-pytorch" ],
+      "domains": [
+        "pytorch.org",
+        "*.pytorch.org"
+      ]
     },
     {
       "glyph": "",
@@ -8575,7 +9026,11 @@
         "dark": "#41CD52",
         "light": "#41CD52"
       },
-      "nerdFontNames": [ "dev-qt" ]
+      "nerdFontNames": [ "dev-qt" ],
+      "domains": [
+        "qt.io",
+        "*.qt.io"
+      ]
     },
     {
       "glyph": "",
@@ -8583,7 +9038,11 @@
         "dark": "#4695EB",
         "light": "#4695EB"
       },
-      "nerdFontNames": [ "dev-quarkus" ]
+      "nerdFontNames": [ "dev-quarkus" ],
+      "domains": [
+        "quarkus.io",
+        "*.quarkus.io"
+      ]
     },
     {
       "glyph": "",
@@ -8599,7 +9058,11 @@
         "dark": "#AC7EF4",
         "light": "#AC7EF4"
       },
-      "nerdFontNames": [ "dev-qwik" ]
+      "nerdFontNames": [ "dev-qwik" ],
+      "domains": [
+        "qwik.dev",
+        "*.qwik.dev"
+      ]
     },
     {
       "glyph": "",
@@ -8615,7 +9078,11 @@
         "dark": "#FF6600",
         "light": "#FF6600"
       },
-      "nerdFontNames": [ "dev-rabbitmq" ]
+      "nerdFontNames": [ "dev-rabbitmq" ],
+      "domains": [
+        "rabbitmq.com",
+        "*.rabbitmq.com"
+      ]
     },
     {
       "glyph": "",
@@ -8631,7 +9098,11 @@
         "dark": "#0075A8",
         "light": "#0075A8"
       },
-      "nerdFontNames": [ "dev-rancher" ]
+      "nerdFontNames": [ "dev-rancher" ],
+      "domains": [
+        "rancher.com",
+        "*.rancher.com"
+      ]
     },
     {
       "glyph": "",
@@ -8695,7 +9166,8 @@
         "dark": "#764ABC",
         "light": "#764ABC"
       },
-      "nerdFontNames": [ "dev-redux" ]
+      "nerdFontNames": [ "dev-redux" ],
+      "domains": [ "redux.js.org" ]
     },
     {
       "glyph": "",
@@ -8711,7 +9183,11 @@
         "dark": "#F26207",
         "light": "#F26207"
       },
-      "nerdFontNames": [ "dev-replit" ]
+      "nerdFontNames": [ "dev-replit" ],
+      "domains": [
+        "replit.com",
+        "*.replit.com"
+      ]
     },
     {
       "glyph": "",
@@ -8740,10 +9216,14 @@
     {
       "glyph": "",
       "color": {
-        "dark": "#8B949E",
-        "light": "#8B949E"
+        "dark": "#EC4A3F",
+        "light": "#EC4A3F"
       },
-      "nerdFontNames": [ "dev-rollup" ]
+      "nerdFontNames": [ "dev-rollup" ],
+      "domains": [
+        "rollupjs.org",
+        "*.rollupjs.org"
+      ]
     },
     {
       "glyph": "",
@@ -8788,10 +9268,14 @@
     {
       "glyph": "",
       "color": {
-        "dark": "#8B949E",
-        "light": "#8B949E"
+        "dark": "#00A1E0",
+        "light": "#00A1E0"
       },
-      "nerdFontNames": [ "dev-salesforce" ]
+      "nerdFontNames": [ "dev-salesforce" ],
+      "domains": [
+        "salesforce.com",
+        "*.salesforce.com"
+      ]
     },
     {
       "glyph": "",
@@ -8799,7 +9283,11 @@
         "dark": "#0D0E12",
         "light": "#0D0E12"
       },
-      "nerdFontNames": [ "dev-sanity" ]
+      "nerdFontNames": [ "dev-sanity" ],
+      "domains": [
+        "sanity.io",
+        "*.sanity.io"
+      ]
     },
     {
       "glyph": "",
@@ -8815,7 +9303,11 @@
         "dark": "#F7931E",
         "light": "#F7931E"
       },
-      "nerdFontNames": [ "dev-scikitlearn" ]
+      "nerdFontNames": [ "dev-scikitlearn" ],
+      "domains": [
+        "scikit-learn.org",
+        "*.scikit-learn.org"
+      ]
     },
     {
       "glyph": "",
@@ -8831,7 +9323,11 @@
         "dark": "#43B02A",
         "light": "#43B02A"
       },
-      "nerdFontNames": [ "dev-selenium" ]
+      "nerdFontNames": [ "dev-selenium" ],
+      "domains": [
+        "selenium.dev",
+        "*.selenium.dev"
+      ]
     },
     {
       "glyph": "",
@@ -8847,7 +9343,11 @@
         "dark": "#362D59",
         "light": "#362D59"
       },
-      "nerdFontNames": [ "dev-sentry" ]
+      "nerdFontNames": [ "dev-sentry" ],
+      "domains": [
+        "sentry.io",
+        "*.sentry.io"
+      ]
     },
     {
       "glyph": "",
@@ -8863,7 +9363,11 @@
         "dark": "#189EFF",
         "light": "#189EFF"
       },
-      "nerdFontNames": [ "dev-shopware" ]
+      "nerdFontNames": [ "dev-shopware" ],
+      "domains": [
+        "shopware.com",
+        "*.shopware.com"
+      ]
     },
     {
       "glyph": "",
@@ -8908,10 +9412,14 @@
     {
       "glyph": "",
       "color": {
-        "dark": "#8B949E",
-        "light": "#8B949E"
+        "dark": "#2C4F7C",
+        "light": "#2C4F7C"
       },
-      "nerdFontNames": [ "dev-solidjs" ]
+      "nerdFontNames": [ "dev-solidjs" ],
+      "domains": [
+        "solidjs.com",
+        "*.solidjs.com"
+      ]
     },
     {
       "glyph": "",
@@ -8951,7 +9459,11 @@
         "dark": "#000000",
         "light": "#000000"
       },
-      "nerdFontNames": [ "dev-spring" ]
+      "nerdFontNames": [ "dev-spring" ],
+      "domains": [
+        "spring.io",
+        "*.spring.io"
+      ]
     },
     {
       "glyph": "",
@@ -9007,7 +9519,11 @@
         "dark": "#FF4785",
         "light": "#FF4785"
       },
-      "nerdFontNames": [ "dev-storybook" ]
+      "nerdFontNames": [ "dev-storybook" ],
+      "domains": [
+        "storybook.js.org",
+        "*.storybook.js.org"
+      ]
     },
     {
       "glyph": "",
@@ -9031,7 +9547,11 @@
         "dark": "#3FCF8E",
         "light": "#3FCF8E"
       },
-      "nerdFontNames": [ "dev-supabase" ]
+      "nerdFontNames": [ "dev-supabase" ],
+      "domains": [
+        "supabase.com",
+        "*.supabase.com"
+      ]
     },
     {
       "glyph": "",
@@ -9039,7 +9559,11 @@
         "dark": "#FF3E00",
         "light": "#FF3E00"
       },
-      "nerdFontNames": [ "dev-svelte" ]
+      "nerdFontNames": [ "dev-svelte" ],
+      "domains": [
+        "svelte.dev",
+        "*.svelte.dev"
+      ]
     },
     {
       "glyph": "",
@@ -9063,7 +9587,11 @@
         "dark": "#06B6D4",
         "light": "#06B6D4"
       },
-      "nerdFontNames": [ "dev-tailwindcss" ]
+      "nerdFontNames": [ "dev-tailwindcss" ],
+      "domains": [
+        "tailwindcss.com",
+        "*.tailwindcss.com"
+      ]
     },
     {
       "glyph": "",
@@ -9071,7 +9599,11 @@
         "dark": "#24C8D8",
         "light": "#24C8D8"
       },
-      "nerdFontNames": [ "dev-tauri" ]
+      "nerdFontNames": [ "dev-tauri" ],
+      "domains": [
+        "tauri.app",
+        "*.tauri.app"
+      ]
     },
     {
       "glyph": "",
@@ -9079,7 +9611,11 @@
         "dark": "#FF6F00",
         "light": "#FF6F00"
       },
-      "nerdFontNames": [ "dev-tensorflow" ]
+      "nerdFontNames": [ "dev-tensorflow" ],
+      "domains": [
+        "tensorflow.org",
+        "*.tensorflow.org"
+      ]
     },
     {
       "glyph": "",
@@ -9087,7 +9623,11 @@
         "dark": "#844FBA",
         "light": "#844FBA"
       },
-      "nerdFontNames": [ "dev-terraform" ]
+      "nerdFontNames": [ "dev-terraform" ],
+      "domains": [
+        "terraform.io",
+        "*.terraform.io"
+      ]
     },
     {
       "glyph": "",
@@ -9167,7 +9707,11 @@
         "dark": "#24A1C1",
         "light": "#24A1C1"
       },
-      "nerdFontNames": [ "dev-traefikproxy" ]
+      "nerdFontNames": [ "dev-traefikproxy" ],
+      "domains": [
+        "traefik.io",
+        "*.traefik.io"
+      ]
     },
     {
       "glyph": "",
@@ -9175,7 +9719,11 @@
         "dark": "#2596BE",
         "light": "#2596BE"
       },
-      "nerdFontNames": [ "dev-trpc" ]
+      "nerdFontNames": [ "dev-trpc" ],
+      "domains": [
+        "trpc.io",
+        "*.trpc.io"
+      ]
     },
     {
       "glyph": "",
@@ -9258,15 +9806,23 @@
         "dark": "#FFEC6E",
         "light": "#FFEC6E"
       },
-      "nerdFontNames": [ "dev-vault" ]
+      "nerdFontNames": [ "dev-vault" ],
+      "domains": [
+        "vaultproject.io",
+        "*.vaultproject.io"
+      ]
     },
     {
       "glyph": "",
       "color": {
-        "dark": "#000000",
+        "dark": "#FFFFFF",
         "light": "#000000"
       },
-      "nerdFontNames": [ "dev-vercel" ]
+      "nerdFontNames": [ "dev-vercel" ],
+      "domains": [
+        "vercel.com",
+        "*.vercel.com"
+      ]
     },
     {
       "glyph": "",
@@ -9295,10 +9851,14 @@
     {
       "glyph": "",
       "color": {
-        "dark": "#8B949E",
-        "light": "#8B949E"
+        "dark": "#646CFF",
+        "light": "#646CFF"
       },
-      "nerdFontNames": [ "dev-vitejs" ]
+      "nerdFontNames": [ "dev-vitejs" ],
+      "domains": [
+        "vitejs.dev",
+        "*.vitejs.dev"
+      ]
     },
     {
       "glyph": "",
@@ -9314,7 +9874,11 @@
         "dark": "#00FF74",
         "light": "#00FF74"
       },
-      "nerdFontNames": [ "dev-vitest" ]
+      "nerdFontNames": [ "dev-vitest" ],
+      "domains": [
+        "vitest.dev",
+        "*.vitest.dev"
+      ]
     },
     {
       "glyph": "",
@@ -9372,10 +9936,14 @@
     {
       "glyph": "",
       "color": {
-        "dark": "#8B949E",
-        "light": "#8B949E"
+        "dark": "#654FF0",
+        "light": "#654FF0"
       },
-      "nerdFontNames": [ "dev-wasm" ]
+      "nerdFontNames": [ "dev-wasm" ],
+      "domains": [
+        "webassembly.org",
+        "*.webassembly.org"
+      ]
     },
     {
       "glyph": "",
@@ -9383,7 +9951,11 @@
         "dark": "#146EF5",
         "light": "#146EF5"
       },
-      "nerdFontNames": [ "dev-webflow" ]
+      "nerdFontNames": [ "dev-webflow" ],
+      "domains": [
+        "webflow.com",
+        "*.webflow.com"
+      ]
     },
     {
       "glyph": "",
@@ -9391,7 +9963,11 @@
         "dark": "#2ECCAA",
         "light": "#2ECCAA"
       },
-      "nerdFontNames": [ "dev-weblate" ]
+      "nerdFontNames": [ "dev-weblate" ],
+      "domains": [
+        "weblate.org",
+        "*.weblate.org"
+      ]
     },
     {
       "glyph": "",
@@ -9399,7 +9975,11 @@
         "dark": "#8DD6F9",
         "light": "#8DD6F9"
       },
-      "nerdFontNames": [ "dev-webpack" ]
+      "nerdFontNames": [ "dev-webpack" ],
+      "domains": [
+        "webpack.js.org",
+        "*.webpack.js.org"
+      ]
     },
     {
       "glyph": "",
@@ -9423,7 +10003,11 @@
         "dark": "#96588A",
         "light": "#96588A"
       },
-      "nerdFontNames": [ "dev-woocommerce" ]
+      "nerdFontNames": [ "dev-woocommerce" ],
+      "domains": [
+        "woocommerce.com",
+        "*.woocommerce.com"
+      ]
     },
     {
       "glyph": "",
@@ -9471,7 +10055,11 @@
         "dark": "#2C8EBB",
         "light": "#2C8EBB"
       },
-      "nerdFontNames": [ "dev-yarn" ]
+      "nerdFontNames": [ "dev-yarn" ],
+      "domains": [
+        "yarnpkg.com",
+        "*.yarnpkg.com"
+      ]
     },
     {
       "glyph": "",
@@ -9495,15 +10083,23 @@
         "dark": "#F7A41D",
         "light": "#F7A41D"
       },
-      "nerdFontNames": [ "dev-zig" ]
+      "nerdFontNames": [ "dev-zig" ],
+      "domains": [
+        "ziglang.org",
+        "*.ziglang.org"
+      ]
     },
     {
       "glyph": "",
       "color": {
-        "dark": "#8B949E",
-        "light": "#8B949E"
+        "dark": "#27AAE1",
+        "light": "#27AAE1"
       },
-      "nerdFontNames": [ "dev-nats" ]
+      "nerdFontNames": [ "dev-nats" ],
+      "domains": [
+        "nats.io",
+        "*.nats.io"
+      ]
     },
     {
       "glyph": "",
@@ -9575,7 +10171,11 @@
         "dark": "#43A047",
         "light": "#43A047"
       },
-      "nerdFontNames": [ "dev-bazel" ]
+      "nerdFontNames": [ "dev-bazel" ],
+      "domains": [
+        "bazel.build",
+        "*.bazel.build"
+      ]
     },
     {
       "glyph": "",
@@ -9607,7 +10207,11 @@
         "dark": "#FF6384",
         "light": "#FF6384"
       },
-      "nerdFontNames": [ "dev-chartjs" ]
+      "nerdFontNames": [ "dev-chartjs" ],
+      "domains": [
+        "chartjs.org",
+        "*.chartjs.org"
+      ]
     },
     {
       "glyph": "",
@@ -9615,7 +10219,11 @@
         "dark": "#FFCC01",
         "light": "#FFCC01"
       },
-      "nerdFontNames": [ "dev-clickhouse" ]
+      "nerdFontNames": [ "dev-clickhouse" ],
+      "domains": [
+        "clickhouse.com",
+        "*.clickhouse.com"
+      ]
     },
     {
       "glyph": "",
@@ -9699,7 +10307,11 @@
         "dark": "#FFF000",
         "light": "#FFF000"
       },
-      "nerdFontNames": [ "dev-duckdb" ]
+      "nerdFontNames": [ "dev-duckdb" ],
+      "domains": [
+        "duckdb.org",
+        "*.duckdb.org"
+      ]
     },
     {
       "glyph": "",
@@ -9787,7 +10399,11 @@
         "dark": "#179287",
         "light": "#179287"
       },
-      "nerdFontNames": [ "dev-gitkraken" ]
+      "nerdFontNames": [ "dev-gitkraken" ],
+      "domains": [
+        "gitkraken.com",
+        "*.gitkraken.com"
+      ]
     },
     {
       "glyph": "",
@@ -9795,7 +10411,11 @@
         "dark": "#FFAFF3",
         "light": "#FFAFF3"
       },
-      "nerdFontNames": [ "dev-gleam" ]
+      "nerdFontNames": [ "dev-gleam" ],
+      "domains": [
+        "gleam.run",
+        "*.gleam.run"
+      ]
     },
     {
       "glyph": "",
@@ -9827,7 +10447,11 @@
         "dark": "#09090B",
         "light": "#09090B"
       },
-      "nerdFontNames": [ "dev-hoppscotch" ]
+      "nerdFontNames": [ "dev-hoppscotch" ],
+      "domains": [
+        "hoppscotch.io",
+        "*.hoppscotch.io"
+      ]
     },
     {
       "glyph": "",
@@ -9835,7 +10459,11 @@
         "dark": "#3366CC",
         "light": "#3366CC"
       },
-      "nerdFontNames": [ "dev-htmx" ]
+      "nerdFontNames": [ "dev-htmx" ],
+      "domains": [
+        "htmx.org",
+        "*.htmx.org"
+      ]
     },
     {
       "glyph": "",
@@ -9947,7 +10575,11 @@
         "dark": "#0058CC",
         "light": "#0058CC"
       },
-      "nerdFontNames": [ "dev-mattermost" ]
+      "nerdFontNames": [ "dev-mattermost" ],
+      "domains": [
+        "mattermost.com",
+        "*.mattermost.com"
+      ]
     },
     {
       "glyph": "",
@@ -9995,7 +10627,11 @@
         "dark": "#1CE783",
         "light": "#1CE783"
       },
-      "nerdFontNames": [ "dev-newrelic" ]
+      "nerdFontNames": [ "dev-newrelic" ],
+      "domains": [
+        "newrelic.com",
+        "*.newrelic.com"
+      ]
     },
     {
       "glyph": "",
@@ -10003,7 +10639,11 @@
         "dark": "#1F1E37",
         "light": "#1F1E37"
       },
-      "nerdFontNames": [ "dev-ngrok" ]
+      "nerdFontNames": [ "dev-ngrok" ],
+      "domains": [
+        "ngrok.com",
+        "*.ngrok.com"
+      ]
     },
     {
       "glyph": "",
@@ -10131,7 +10771,11 @@
         "dark": "#000000",
         "light": "#000000"
       },
-      "nerdFontNames": [ "dev-remix" ]
+      "nerdFontNames": [ "dev-remix" ],
+      "domains": [
+        "remix.run",
+        "*.remix.run"
+      ]
     },
     {
       "glyph": "",
@@ -10163,7 +10807,11 @@
         "dark": "#1269D3",
         "light": "#1269D3"
       },
-      "nerdFontNames": [ "dev-stackblitz" ]
+      "nerdFontNames": [ "dev-stackblitz" ],
+      "domains": [
+        "stackblitz.com",
+        "*.stackblitz.com"
+      ]
     },
     {
       "glyph": "",
@@ -10256,10 +10904,14 @@
     {
       "glyph": "",
       "color": {
-        "dark": "#8B949E",
-        "light": "#8B949E"
+        "dark": "#F22F46",
+        "light": "#F22F46"
       },
-      "nerdFontNames": [ "dev-twilio" ]
+      "nerdFontNames": [ "dev-twilio" ],
+      "domains": [
+        "twilio.com",
+        "*.twilio.com"
+      ]
     },
     {
       "glyph": "",
@@ -10283,7 +10935,11 @@
         "dark": "#2F80ED",
         "light": "#2F80ED"
       },
-      "nerdFontNames": [ "dev-vscodium" ]
+      "nerdFontNames": [ "dev-vscodium" ],
+      "domains": [
+        "vscodium.com",
+        "*.vscodium.com"
+      ]
     },
     {
       "glyph": "",
@@ -10331,7 +10987,8 @@
         "dark": "#F15A24",
         "light": "#F15A24"
       },
-      "nerdFontNames": [ "dev-zsh" ]
+      "nerdFontNames": [ "dev-zsh" ],
+      "domains": [ "zsh.sourceforge.io" ]
     },
     {
       "glyph": "",
@@ -14742,7 +15399,11 @@
         "light": "#00A4EF"
       },
       "nerdFontNames": [ "fa-microsoft" ],
-      "domains": [ "login.microsoftonline.com" ]
+      "domains": [
+        "learn.microsoft.com",
+        "login.microsoftonline.com",
+        "microsoftonline.com"
+      ]
     },
     {
       "glyph": "",
@@ -15102,7 +15763,11 @@
         "dark": "#000000",
         "light": "#000000"
       },
-      "nerdFontNames": [ "fa-uber" ]
+      "nerdFontNames": [ "fa-uber" ],
+      "domains": [
+        "uber.com",
+        "*.uber.com"
+      ]
     },
     {
       "glyph": "",
@@ -15211,10 +15876,16 @@
     {
       "glyph": "",
       "color": {
-        "dark": "#8B949E",
-        "light": "#8B949E"
+        "dark": "#FC3F1D",
+        "light": "#FC3F1D"
       },
-      "nerdFontNames": [ "fa-yandex" ]
+      "nerdFontNames": [ "fa-yandex" ],
+      "domains": [
+        "yandex.com",
+        "yandex.ru",
+        "*.yandex.com",
+        "*.yandex.ru"
+      ]
     },
     {
       "glyph": "",
@@ -20001,7 +20672,11 @@
         "dark": "#FF5A5F",
         "light": "#FF5A5F"
       },
-      "nerdFontNames": [ "fa-airbnb" ]
+      "nerdFontNames": [ "fa-airbnb" ],
+      "domains": [
+        "airbnb.com",
+        "*.airbnb.com"
+      ]
     },
     {
       "glyph": "",
@@ -21919,7 +22594,7 @@
     {
       "glyph": "",
       "color": {
-        "dark": "#8B949E",
+        "dark": "#181717",
         "light": "#181717"
       },
       "nerdFontNames": [ "fa-github" ],
@@ -23918,7 +24593,7 @@
     {
       "glyph": "",
       "color": {
-        "dark": "#8B949E",
+        "dark": "#F48024",
         "light": "#1E5397"
       },
       "nerdFontNames": [ "fa-stack_overflow" ],
@@ -23968,7 +24643,7 @@
     {
       "glyph": "",
       "color": {
-        "dark": "#8B949E",
+        "dark": "#0052CC",
         "light": "#0052CC"
       },
       "nerdFontNames": [ "fa-bitbucket" ],
@@ -23991,7 +24666,7 @@
     {
       "glyph": "",
       "color": {
-        "dark": "#8B949E",
+        "dark": "#36465D",
         "light": "#36465D"
       },
       "nerdFontNames": [ "fa-tumblr" ],
@@ -24058,7 +24733,7 @@
     {
       "glyph": "",
       "color": {
-        "dark": "#8B949E",
+        "dark": "#000000",
         "light": "#000000"
       },
       "nerdFontNames": [ "fa-apple" ],
@@ -24110,10 +24785,14 @@
     {
       "glyph": "",
       "color": {
-        "dark": "#8B949E",
-        "light": "#8B949E"
+        "dark": "#00AFF0",
+        "light": "#00AFF0"
       },
-      "nerdFontNames": [ "fa-skype" ]
+      "nerdFontNames": [ "fa-skype" ],
+      "domains": [
+        "skype.com",
+        "*.skype.com"
+      ]
     },
     {
       "glyph": "",
@@ -24430,10 +25109,14 @@
     {
       "glyph": "",
       "color": {
-        "dark": "#8B949E",
-        "light": "#8B949E"
+        "dark": "#6001D2",
+        "light": "#6001D2"
       },
-      "nerdFontNames": [ "fa-yahoo" ]
+      "nerdFontNames": [ "fa-yahoo" ],
+      "domains": [
+        "yahoo.com",
+        "*.yahoo.com"
+      ]
     },
     {
       "glyph": "",
@@ -24653,10 +25336,16 @@
     {
       "glyph": "",
       "color": {
-        "dark": "#000000",
-        "light": "#000000"
+        "dark": "#66C0F4",
+        "light": "#1B2838"
       },
-      "nerdFontNames": [ "fa-steam" ]
+      "nerdFontNames": [ "fa-steam" ],
+      "domains": [
+        "steamcommunity.com",
+        "steampowered.com",
+        "*.steamcommunity.com",
+        "*.steampowered.com"
+      ]
     },
     {
       "glyph": "",
@@ -24999,6 +25688,10 @@
       "nerdFontNames": [
         "fa-wechat",
         "fa-weixin"
+      ],
+      "domains": [
+        "wechat.com",
+        "*.wechat.com"
       ]
     },
     {
@@ -25166,10 +25859,14 @@
     {
       "glyph": "",
       "color": {
-        "dark": "#FF1A1A",
-        "light": "#FF1A1A"
+        "dark": "#D32323",
+        "light": "#D32323"
       },
-      "nerdFontNames": [ "fa-yelp" ]
+      "nerdFontNames": [ "fa-yelp" ],
+      "domains": [
+        "yelp.com",
+        "*.yelp.com"
+      ]
     },
     {
       "glyph": "",
@@ -25201,7 +25898,7 @@
     {
       "glyph": "",
       "color": {
-        "dark": "#8B949E",
+        "dark": "#003087",
         "light": "#002991"
       },
       "nerdFontNames": [ "fa-paypal" ],
@@ -25885,7 +26582,7 @@
     {
       "glyph": "",
       "color": {
-        "dark": "#8B949E",
+        "dark": "#000000",
         "light": "#000000"
       },
       "nerdFontNames": [ "fa-medium" ],
@@ -26307,7 +27004,7 @@
     {
       "glyph": "",
       "color": {
-        "dark": "#8B949E",
+        "dark": "#000000",
         "light": "#000000"
       },
       "nerdFontNames": [ "fa-wikipedia_w" ],
@@ -26957,7 +27654,11 @@
         "dark": "#FFFC00",
         "light": "#FFFC00"
       },
-      "nerdFontNames": [ "fa-snapchat" ]
+      "nerdFontNames": [ "fa-snapchat" ],
+      "domains": [
+        "snapchat.com",
+        "*.snapchat.com"
+      ]
     },
     {
       "glyph": "",
@@ -27187,7 +27888,11 @@
         "dark": "#B92B27",
         "light": "#B92B27"
       },
-      "nerdFontNames": [ "fa-quora" ]
+      "nerdFontNames": [ "fa-quora" ],
+      "domains": [
+        "quora.com",
+        "*.quora.com"
+      ]
     },
     {
       "glyph": "",
@@ -27377,7 +28082,11 @@
         "dark": "#F16521",
         "light": "#F16521"
       },
-      "nerdFontNames": [ "fa-etsy" ]
+      "nerdFontNames": [ "fa-etsy" ],
+      "domains": [
+        "etsy.com",
+        "*.etsy.com"
+      ]
     },
     {
       "glyph": "",
@@ -27675,7 +28384,11 @@
         "dark": "#00C300",
         "light": "#00C300"
       },
-      "nerdFontNames": [ "fa-line" ]
+      "nerdFontNames": [ "fa-line" ],
+      "domains": [
+        "line.me",
+        "*.line.me"
+      ]
     },
     {
       "glyph": "",
@@ -27691,7 +28404,11 @@
         "dark": "#FF00BF",
         "light": "#FF00BF"
       },
-      "nerdFontNames": [ "fa-lyft" ]
+      "nerdFontNames": [ "fa-lyft" ],
+      "domains": [
+        "lyft.com",
+        "*.lyft.com"
+      ]
     },
     {
       "glyph": "",
@@ -28874,8 +29591,8 @@
     {
       "glyph": "",
       "color": {
-        "dark": "#8B949E",
-        "light": "#000000"
+        "dark": "#FF424D",
+        "light": "#FF424D"
       },
       "domains": [
         "patreon.com",
@@ -32913,8 +33630,8 @@
     {
       "glyph": "󰂽",
       "color": {
-        "dark": "#8B949E",
-        "light": "#8B949E"
+        "dark": "#0F6CBD",
+        "light": "#0F6CBD"
       },
       "nerdFontNames": [ "md-book_open" ]
     },
@@ -36940,11 +37657,15 @@
     {
       "glyph": "󰊠",
       "color": {
-        "dark": "#15171A",
+        "dark": "#F5F5F5",
         "light": "#15171A"
       },
       "nerdFontNames": [ "md-ghost" ],
-      "applications": [ "terminal" ]
+      "applications": [ "terminal" ],
+      "domains": [
+        "ghostty.org",
+        "*.ghostty.org"
+      ]
     },
     {
       "glyph": "󰊡",
@@ -37154,7 +37875,8 @@
         "dark": "#4285F4",
         "light": "#4285F4"
       },
-      "nerdFontNames": [ "md-google_earth" ]
+      "nerdFontNames": [ "md-google_earth" ],
+      "domains": [ "earth.google.com" ]
     },
     {
       "glyph": "󰊸",
@@ -37199,7 +37921,8 @@
         "dark": "#414141",
         "light": "#414141"
       },
-      "nerdFontNames": [ "md-google_play" ]
+      "nerdFontNames": [ "md-google_play" ],
+      "domains": [ "play.google.com" ]
     },
     {
       "glyph": "󰊽",
@@ -37223,7 +37946,8 @@
         "dark": "#4285F4",
         "light": "#4285F4"
       },
-      "nerdFontNames": [ "md-google_translate" ]
+      "nerdFontNames": [ "md-google_translate" ],
+      "domains": [ "translate.google.com" ]
     },
     {
       "glyph": "󰋀",
@@ -37231,7 +37955,8 @@
         "dark": "#0F9D58",
         "light": "#0F9D58"
       },
-      "nerdFontNames": [ "md-google_classroom" ]
+      "nerdFontNames": [ "md-google_classroom" ],
+      "domains": [ "classroom.google.com" ]
     },
     {
       "glyph": "󰋁",
@@ -37301,10 +38026,14 @@
     {
       "glyph": "󰋉",
       "color": {
-        "dark": "#8B949E",
-        "light": "#8B949E"
+        "dark": "#0F9D58",
+        "light": "#0F9D58"
       },
-      "nerdFontNames": [ "md-google_hangouts" ]
+      "nerdFontNames": [ "md-google_hangouts" ],
+      "domains": [
+        "chat.google.com",
+        "hangouts.google.com"
+      ]
     },
     {
       "glyph": "󰋊",
@@ -37783,7 +38512,8 @@
         "dark": "#0052CC",
         "light": "#0052CC"
       },
-      "nerdFontNames": [ "md-jira" ]
+      "nerdFontNames": [ "md-jira" ],
+      "domains": [ "jira.atlassian.com" ]
     },
     {
       "glyph": "󰌄",
@@ -37791,7 +38521,11 @@
         "dark": "#0084FF",
         "light": "#0084FF"
       },
-      "nerdFontNames": [ "md-jsfiddle" ]
+      "nerdFontNames": [ "md-jsfiddle" ],
+      "domains": [
+        "jsfiddle.net",
+        "*.jsfiddle.net"
+      ]
     },
     {
       "glyph": "󰌅",
@@ -38003,6 +38737,10 @@
         "light": "#F97316"
       },
       "nerdFontNames": [ "md-language_html5" ],
+      "domains": [
+        "html.spec.whatwg.org",
+        "whatwg.org"
+      ],
       "editorFiletypes": [
         "html",
         "htmlcheetah",
@@ -38021,6 +38759,7 @@
         "light": "#22C55E"
       },
       "nerdFontNames": [ "md-language_javascript" ],
+      "domains": [ "tc39.es" ],
       "editorFiletypes": [
         "handlebars",
         "javascript",
@@ -38034,6 +38773,10 @@
         "light": "#A855F7"
       },
       "nerdFontNames": [ "md-language_php" ],
+      "domains": [
+        "php.net",
+        "*.php.net"
+      ],
       "editorFiletypes": [
         "php",
         "phtml"
@@ -38046,6 +38789,10 @@
         "light": "#0EA5E9"
       },
       "nerdFontNames": [ "md-language_python" ],
+      "domains": [
+        "python.org",
+        "*.python.org"
+      ],
       "editorFiletypes": [
         "pymanifest",
         "python",
@@ -38491,6 +39238,10 @@
         "light": "#8B949E"
       },
       "nerdFontNames": [ "md-language_markdown" ],
+      "domains": [
+        "commonmark.org",
+        "*.commonmark.org"
+      ],
       "editorFiletypes": [
         "lsp_markdown",
         "markdown",
@@ -42200,11 +42951,7 @@
         "dark": "#2EAD33",
         "light": "#2EAD33"
       },
-      "nerdFontNames": [ "md-theater" ],
-      "domains": [
-        "playwright.dev",
-        "*.playwright.dev"
-      ]
+      "nerdFontNames": [ "md-theater" ]
     },
     {
       "glyph": "󰔎",
@@ -43381,7 +44128,7 @@
     {
       "glyph": "󰖟",
       "color": {
-        "dark": "#8B949E",
+        "dark": "#005A9C",
         "light": "#005A9C"
       },
       "nerdFontNames": [ "md-web" ],
@@ -45166,6 +45913,10 @@
         "light": "#0EA5E9"
       },
       "nerdFontNames": [ "md-language_cpp" ],
+      "domains": [
+        "isocpp.org",
+        "*.isocpp.org"
+      ],
       "editorFiletypes": [
         "cpp",
         "cynlib",
@@ -46047,7 +46798,8 @@
         "dark": "#FFBB00",
         "light": "#FFBB00"
       },
-      "nerdFontNames": [ "md-google_keep" ]
+      "nerdFontNames": [ "md-google_keep" ],
+      "domains": [ "keep.google.com" ]
     },
     {
       "glyph": "󰛝",
@@ -46121,6 +46873,10 @@
         "light": "#F97316"
       },
       "nerdFontNames": [ "md-language_swift" ],
+      "domains": [
+        "swift.org",
+        "*.swift.org"
+      ],
       "editorFiletypes": [
         "sil",
         "swift",
@@ -46134,6 +46890,10 @@
         "light": "#0EA5E9"
       },
       "nerdFontNames": [ "md-language_typescript" ],
+      "domains": [
+        "typescriptlang.org",
+        "*.typescriptlang.org"
+      ],
       "editorFiletypes": [
         "typescript",
         "typescript.glimmer"
@@ -46926,7 +47686,11 @@
         "dark": "#E50914",
         "light": "#E50914"
       },
-      "nerdFontNames": [ "md-netflix" ]
+      "nerdFontNames": [ "md-netflix" ],
+      "domains": [
+        "netflix.com",
+        "*.netflix.com"
+      ]
     },
     {
       "glyph": "󰝇",
@@ -48012,7 +48776,8 @@
         "dark": "#E37400",
         "light": "#E37400"
       },
-      "nerdFontNames": [ "md-google_analytics" ]
+      "nerdFontNames": [ "md-google_analytics" ],
+      "domains": [ "analytics.google.com" ]
     },
     {
       "glyph": "󰟍",
@@ -48069,6 +48834,10 @@
         "light": "#06B6D4"
       },
       "nerdFontNames": [ "md-language_go" ],
+      "domains": [
+        "go.dev",
+        "*.go.dev"
+      ],
       "files": [
         "go.sum",
         "go.work.sum"
@@ -48088,6 +48857,10 @@
         "light": "#3B82F6"
       },
       "nerdFontNames": [ "md-language_r" ],
+      "domains": [
+        "r-project.org",
+        "*.r-project.org"
+      ],
       "editorFiletypes": [
         "r",
         "rhelp",
@@ -48778,10 +49551,14 @@
     {
       "glyph": "󰠩",
       "color": {
-        "dark": "#8B949E",
-        "light": "#8B949E"
+        "dark": "#1CE783",
+        "light": "#1CE783"
       },
-      "nerdFontNames": [ "md-hulu" ]
+      "nerdFontNames": [ "md-hulu" ],
+      "domains": [
+        "hulu.com",
+        "*.hulu.com"
+      ]
     },
     {
       "glyph": "󰠪",
@@ -49884,6 +50661,10 @@
         "light": "#0EA5E9"
       },
       "nerdFontNames": [ "md-language_lua" ],
+      "domains": [
+        "lua.org",
+        "*.lua.org"
+      ],
       "files": [ "config.ld" ],
       "editorFiletypes": [
         "lua",
@@ -52440,7 +53221,7 @@
     {
       "glyph": "󰧮",
       "color": {
-        "dark": "#8B949E",
+        "dark": "#000000",
         "light": "#000000"
       },
       "nerdFontNames": [ "md-file_document_outline" ],
@@ -55546,6 +56327,10 @@
         "light": "#F97316"
       },
       "nerdFontNames": [ "md-language_java" ],
+      "domains": [
+        "java.com",
+        "*.java.com"
+      ],
       "editorFiletypes": [
         "java",
         "javacc",
@@ -58277,7 +59062,8 @@
         "dark": "#4285F4",
         "light": "#4285F4"
       },
-      "nerdFontNames": [ "md-google_ads" ]
+      "nerdFontNames": [ "md-google_ads" ],
+      "domains": [ "ads.google.com" ]
     },
     {
       "glyph": "󰲈",
@@ -58366,6 +59152,10 @@
         "light": "#3B82F6"
       },
       "nerdFontNames": [ "md-language_haskell" ],
+      "domains": [
+        "haskell.org",
+        "*.haskell.org"
+      ],
       "editorFiletypes": [
         "cabal",
         "chaskell",
@@ -59623,6 +60413,10 @@
         "light": "#F97316"
       },
       "nerdFontNames": [ "md-language_ruby" ],
+      "domains": [
+        "ruby-lang.org",
+        "*.ruby-lang.org"
+      ],
       "editorFiletypes": [
         "eruby",
         "ruby"
@@ -65106,7 +65900,6 @@
       "nerdFontNames": [ "md-microsoft_azure_devops" ],
       "domains": [
         "azure.com",
-        "dev.azure.com",
         "*.azure.com",
         "*.visualstudio.com"
       ]
@@ -69554,7 +70347,8 @@
         "dark": "#4285F4",
         "light": "#4285F4"
       },
-      "nerdFontNames": [ "md-google_cloud" ]
+      "nerdFontNames": [ "md-google_cloud" ],
+      "domains": [ "cloud.google.com" ]
     },
     {
       "glyph": "󱇷",
@@ -69835,6 +70629,10 @@
         "light": "#3B82F6"
       },
       "nerdFontNames": [ "md-language_kotlin" ],
+      "domains": [
+        "kotlinlang.org",
+        "*.kotlinlang.org"
+      ],
       "editorFiletypes": [ "kotlin" ]
     },
     {
@@ -69844,6 +70642,10 @@
         "light": "#A855F7"
       },
       "nerdFontNames": [ "md-language_fortran" ],
+      "domains": [
+        "fortran-lang.org",
+        "*.fortran-lang.org"
+      ],
       "editorFiletypes": [ "fortran" ]
     },
     {
@@ -78075,6 +78877,10 @@
         "light": "#22C55E"
       },
       "nerdFontNames": [ "md-language_rust" ],
+      "domains": [
+        "rust-lang.org",
+        "*.rust-lang.org"
+      ],
       "editorFiletypes": [
         "lalrpop",
         "ron",
@@ -78869,7 +79675,7 @@
     {
       "glyph": "󱙺",
       "color": {
-        "dark": "#8B949E",
+        "dark": "#191919",
         "light": "#191919"
       },
       "nerdFontNames": [ "md-robot_outline" ],
