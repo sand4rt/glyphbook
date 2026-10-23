@@ -53,6 +53,7 @@ jobs:
           name: catalog-update
       - uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1
         with:
+          token: ${{ secrets.CATALOG_PR_TOKEN || github.token }}
           branch: automation/update-catalog
           delete-branch: true
           commit-message: "update generated icon catalog"
