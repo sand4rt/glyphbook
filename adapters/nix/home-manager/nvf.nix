@@ -2,7 +2,7 @@
 { config, lib, ... }:
 let
   cfg = config.glyphbook.targets.nvf;
-  icons = config.glyphbook.icons;
+  icons = config.glyphbook.icons.forApp "nvf";
 in
 {
   imports = [

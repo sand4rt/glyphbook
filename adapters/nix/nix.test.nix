@@ -24,11 +24,17 @@ let
             targets.lsd.enable = true;
             targets.waybar.bluetooth = {
               enable = true;
-              bars = [ "main" ];
+              bars = [
+                "main"
+                "external"
+              ];
             };
             targets.waybar.modules = {
               enable = true;
-              bars = [ "main" ];
+              bars = [
+                "main"
+                "external"
+              ];
             };
             overrides.extension.nix = {
               glyph = "G";
@@ -60,6 +66,15 @@ let
       ];
     }).config;
   generated = configuration { };
+  themed = configuration {
+    glyphbook.theme = pkgs.lib.mkForce "github-dark-dimmed";
+    glyphbook.themeColors.foregroundStrong = "#ffffff";
+    glyphbook.overrides.website."github.com".glyph = "G";
+    glyphbook.apps.yazi.overrides.extension.nix.color = "#abcdef";
+    glyphbook.apps.lsd.overrides.extension.nix.glyph = "S";
+    glyphbook.apps.waybar.overrides.nerdFont."md-speedometer".glyph = "W";
+    glyphbook.polarity = "light";
+  };
   nvfGenerated = (home-manager.lib.homeManagerConfiguration {
     inherit pkgs;
     modules = [
@@ -94,6 +109,14 @@ let
     glyphbook.targets.neovim.settings.filetype.nix.glyph = "L";
     glyphbook.targets.neovim.settings.filetype.glyphbook_delimiter.glyph = "]=]";
     programs.waybar.settings.main.pulseaudio.format-icons.speaker = "L";
+    programs.waybar.settings.main.cpu = {
+      states.critical = 70;
+      format = "";
+      format-good = "";
+      format-warning = "";
+      format-critical = "C";
+    };
+    programs.waybar.settings.main.bluetooth.format-icons = [ "B" ];
   };
   disabled = configuration { glyphbook.enable = lib.mkForce false; };
   targetDisabled = configuration {
@@ -118,9 +141,11 @@ assert builtins.any (
 assert builtins.any (
   rule: rule."if" == "dir" && rule.fg == "#123456"
 ) generated.programs.yazi.theme.icon.prepend_conds;
+assert generated.glyphbook.icons.mini.file."README.md".glyph == "󰂽";
+assert builtins.elem "md-book_open" generated.glyphbook.icons.mini.file."README.md".nerdFontNames;
 assert
   map (rule: rule."if") generated.programs.yazi.theme.icon.prepend_conds
-  == [ "orphan" "link" "block" "fifo" "sock" "sticky" "dummy" "exec" "dir" "!dir" ];
+   == [ "orphan" "link" "block" "fifo" "sock" "sticky" "dummy" "dir" "exec" "!dir" ];
 assert
   generated.glyphbook.icons.applications.terminal.glyph == (import ./nix.nix { })
   .applications.terminal.glyph;
@@ -161,14 +186,35 @@ assert
     (import ./nix.nix { overrides.file.unknown.color = null; }).mini.file.unknown
   )).success;
 assert generated.glyphbook.icons.mini.extension.nix.glyph == "G";
-assert generated.programs.yazi.theme.notify.icon_info == generated.glyphbook.icons.nerdFonts."md-information".glyph;
+assert generated.programs.yazi.theme.notify.icon_info == generated.glyphbook.icons.diagnostics.info;
 assert local.glyphbook.targets.neovim.settings.filetype.nix.glyph == "L";
 assert generated.programs.lsd.icons.extension.nix == "G";
 assert generated.programs.waybar.settings.main.bluetooth.format-connected == generated.glyphbook.icons.nerdFonts."fa-bluetooth".glyph;
-assert generated.programs.waybar.settings.main.bluetooth.format-icons == builtins.genList (_: generated.glyphbook.icons.nerdFonts."md-battery".glyph) 11;
+assert generated.programs.waybar.settings.main.bluetooth.format-icons == [
+  "󰥇"
+  "󰤾"
+  "󰤿"
+  "󰥀"
+  "󰥁"
+  "󰥂"
+  "󰥃"
+  "󰥄"
+  "󰥅"
+  "󰥆"
+  "󰥈"
+];
+assert generated.programs.waybar.settings.main.bluetooth.format == "";
 assert generated.programs.waybar.settings.main."hyprland/workspaces".format-icons."1" == "1";
-assert generated.programs.waybar.settings.main.disk.format-critical == generated.glyphbook.icons.nerdFonts."md-harddisk".glyph;
-assert generated.programs.waybar.settings.main.cpu.format-critical == generated.glyphbook.icons.nerdFonts."md-chip".glyph;
+assert generated.programs.waybar.settings.main."hyprland/workspaces".format-icons.default == "";
+assert generated.programs.waybar.settings.main.disk.format-critical == "󱘺";
+assert generated.programs.waybar.settings.main.cpu.format-critical == "󰓅";
+assert generated.programs.waybar.settings.main.memory.format-critical == "󰍛";
+assert generated.programs.waybar.settings.external == generated.programs.waybar.settings.main;
+assert generated.programs.waybar.settings.main.pulseaudio.format-muted == "";
+assert generated.programs.waybar.settings.main.pulseaudio.format-bluetooth == "󱡏";
+assert generated.programs.waybar.settings.main.pulseaudio.format-bluetooth-muted == "󱡐";
+assert generated.programs.waybar.settings.main.pulseaudio.format-source == "󰍬";
+assert generated.programs.waybar.settings.main.pulseaudio.format-source-muted == "󰍭";
   assert generated.programs.waybar.settings.main.battery.format-icons == [
     generated.glyphbook.icons.nerdFonts."md-battery_outline".glyph
     generated.glyphbook.icons.nerdFonts."md-battery_10".glyph
@@ -183,12 +229,14 @@ assert generated.programs.waybar.settings.main.cpu.format-critical == generated.
     generated.glyphbook.icons.nerdFonts."md-battery".glyph
   ];
   assert generated.programs.waybar.settings.main.pulseaudio.format-icons == {
-    speaker = generated.glyphbook.icons.nerdFonts."fa-volume_high".glyph;
-    handsfree = generated.glyphbook.icons.nerdFonts."fa-headphones".glyph;
-    headset = generated.glyphbook.icons.nerdFonts."fa-headphones".glyph;
+    headphones = generated.glyphbook.icons.nerdFonts."fa-headphones".glyph;
+    speaker = generated.glyphbook.icons.nerdFonts."md-speaker_wireless".glyph;
+    handsfree = generated.glyphbook.icons.nerdFonts."fa-headset".glyph;
+    headset = generated.glyphbook.icons.nerdFonts."fa-headset".glyph;
     phone = generated.glyphbook.icons.nerdFonts."fa-phone".glyph;
-    phone-muted = generated.glyphbook.icons.nerdFonts."fa-phone".glyph;
-    portable = generated.glyphbook.icons.nerdFonts."fa-volume_high".glyph;
+    phone-muted = generated.glyphbook.icons.nerdFonts."fa-phone_slash".glyph;
+    portable = generated.glyphbook.icons.nerdFonts."fa-phone".glyph;
+    car = generated.glyphbook.icons.nerdFonts."fa-car".glyph;
     default = [
       generated.glyphbook.icons.nerdFonts."fa-volume_off".glyph
       generated.glyphbook.icons.nerdFonts."fa-volume_down".glyph
@@ -198,11 +246,37 @@ assert generated.programs.waybar.settings.main.cpu.format-critical == generated.
   };
   assert nvfGenerated.programs.nvf.settings.vim.autocomplete.blink-cmp.setupOpts.appearance.kind_icons.Tag == nvfGenerated.glyphbook.icons.nvim.completion.Tag;
   assert nvfGenerated.programs.nvf.settings.vim.diagnostics.config.signs.text != null;
+  assert nvfGenerated.glyphbook.icons.nvim.diagnostics == {
+    error = "󰚌";
+    warn = "";
+    info = "󰧚";
+    hint = "󰌵";
+  };
+  assert generated.glyphbook.icons.nvim.diagnostics == generated.glyphbook.icons.diagnostics;
+  assert builtins.all (severity:
+    generated.glyphbook.icons.nvim.statusline.diagnostics.${severity} == generated.glyphbook.icons.diagnostics.${severity}
+  ) [ "error" "warn" "info" "hint" ];
+  assert generated.programs.yazi.theme.notify.icon_warn == generated.glyphbook.icons.diagnostics.warn;
+  assert generated.programs.yazi.theme.notify.icon_error == generated.glyphbook.icons.diagnostics.error;
   assert nvfGenerated.programs.nvf.settings.vim.mini.icons.setupOpts.file."devcontainer.json".glyph == nvfGenerated.glyphbook.icons.nerdFonts."oct-shield_lock".glyph;
   assert nvfGenerated.programs.nvf.settings.vim.lazy.plugins."nvim-colorizer.lua".setupOpts.user_default_options.virtualtext == nvfGenerated.glyphbook.icons.nerdFonts."fa-square".glyph;
   assert nvfGenerated.programs.nvf.settings.vim.luaConfigRC.glyphbook-nvf-dap-signs != "";
 assert local.programs.lsd.icons.extension.nix == "L";
+assert (themed.glyphbook.icons.resolve { category = "website"; name = "github.com"; }).color == "#ffffff";
+assert (themed.glyphbook.icons.resolve { category = "website"; name = "github.com"; }).glyph == "G";
+assert themed.glyphbook.icons.polarity == "light";
+assert themed.programs.lsd.icons.extension.nix == "S";
+assert themed.programs.waybar.settings.main.cpu.format-critical == "W";
+assert (builtins.head (builtins.filter (rule: rule.name == "nix") themed.programs.yazi.theme.icon.exts)).fg == "#abcdef";
 assert local.programs.waybar.settings.main.pulseaudio.format-icons.speaker == "L";
+assert local.programs.waybar.settings.main.cpu == {
+  states.critical = 70;
+  format = "";
+  format-good = "";
+  format-warning = "";
+  format-critical = "C";
+};
+assert local.programs.waybar.settings.main.bluetooth.format-icons == [ "B" ];
 assert
   local.programs.yazi.theme.icon.exts == [
     {
@@ -248,8 +322,9 @@ pkgs.runCommand "glyphbook-home-manager-check"
     with open(sys.argv[1], "rb") as source:
         icon = tomllib.load(source)["icon"]
     assert next(rule for rule in icon["exts"] if rule["name"] == "nix")["text"] == "G"
+    assert next(rule for rule in icon["files"] if rule["name"] == "README.md")["text"] == "󰂽"
     conditions = icon["prepend_conds"]
-    assert [rule["if"] for rule in conditions] == ["orphan", "link", "block", "fifo", "sock", "sticky", "dummy", "exec", "dir", "!dir"]
+    assert [rule["if"] for rule in conditions] == ["orphan", "link", "block", "fifo", "sock", "sticky", "dummy", "dir", "exec", "!dir"]
     assert next(rule for rule in conditions if rule["if"] == "orphan")["fg"] == "#654321"
     PY
     nvim --headless -u "$luaConfig" -l ${./home-manager/neovim.test.lua}

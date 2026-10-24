@@ -2,6 +2,38 @@
 
 : "${GLYPHBOOK_CATALOG:?Set GLYPHBOOK_CATALOG to the icons.json path}"
 
+icons_theme_enabled() {
+  [ "${GLYPHBOOK_THEME_PREPARED:-0}" != 1 ] && [ -n "${GLYPHBOOK_THEME:-}${GLYPHBOOK_CONFIG:-}" ]
+}
+
+icons_prepare_theme() {
+  [ "$#" -eq 1 ] || { printf 'usage: icons_prepare_theme DIRECTORY\n' >&2; return 2; }
+  (
+    set -- --catalog "$GLYPHBOOK_CATALOG" --prepare "$1" --resolver "${GLYPHBOOK_RESOLVER:?Set GLYPHBOOK_RESOLVER}"
+    [ -z "${GLYPHBOOK_THEME:-}" ] || set -- "$@" --theme "$GLYPHBOOK_THEME"
+    [ -z "${GLYPHBOOK_CONFIG:-}" ] || set -- "$@" --config "$GLYPHBOOK_CONFIG"
+    [ -z "${GLYPHBOOK_APP:-}" ] || set -- "$@" --app "$GLYPHBOOK_APP"
+    python3 "${GLYPHBOOK_THEME_RESOLVER:?Set GLYPHBOOK_THEME_RESOLVER}" "$@"
+  ) || return
+  GLYPHBOOK_INDEX=$1/icons.index
+  GLYPHBOOK_RECORDS=$1/icons.records.jsonl
+  GLYPHBOOK_THEME_PREPARED=1
+  export GLYPHBOOK_INDEX GLYPHBOOK_RECORDS GLYPHBOOK_THEME_PREPARED
+}
+
+icons_theme_lookup() {
+  (
+    operation=$1
+    category=$2
+    name=$3
+    set -- --catalog "$GLYPHBOOK_CATALOG" --lookup "$operation" --name "$name" --category "$category"
+    [ -z "${GLYPHBOOK_THEME:-}" ] || set -- "$@" --theme "$GLYPHBOOK_THEME"
+    [ -z "${GLYPHBOOK_CONFIG:-}" ] || set -- "$@" --config "$GLYPHBOOK_CONFIG"
+    [ -z "${GLYPHBOOK_APP:-}" ] || set -- "$@" --app "$GLYPHBOOK_APP"
+    python3 "${GLYPHBOOK_THEME_RESOLVER:?Set GLYPHBOOK_THEME_RESOLVER to adapters/python/themes.py}" "$@"
+  )
+}
+
 icons_resolver_enabled() {
   [ -n "${GLYPHBOOK_RESOLVER:-}" ] && [ -r "${GLYPHBOOK_INDEX:-}" ] && [ -r "${GLYPHBOOK_RECORDS:-}" ]
 }
@@ -20,6 +52,11 @@ icons_get() {
   category=$1
   name=$2
   icons_catalog=$GLYPHBOOK_CATALOG
+
+  if icons_theme_enabled; then
+    icons_theme_lookup get "$category" "$name"
+    return
+  fi
 
   if icons_resolver_enabled; then
     case $category in
@@ -145,6 +182,10 @@ icons_get_file() {
 
   name=${1##*/}
   filetype=${2-}
+  if icons_theme_enabled; then
+    icons_theme_lookup file "$filetype" "$name"
+    return
+  fi
   if icons_resolver_enabled; then
     if [ "$#" -eq 2 ]; then
       icons_resolver file "$name" "$filetype"

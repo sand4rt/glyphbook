@@ -49,6 +49,7 @@
     in
     {
       homeManagerModules.default = import ./adapters/nix/home-manager;
+      homeManagerModules.stylix = import ./adapters/nix/home-manager/stylix.nix;
       homeManagerModules.nvf = import ./adapters/nix/home-manager/nvf.nix { inherit nvf; };
       lib = import ./adapters/nix/nix.nix { } // {
         withConfig = args: import ./adapters/nix/nix.nix args;
@@ -68,7 +69,7 @@
           };
           glyphbook = pkgs.writeShellApplication {
             name = "glyphbook";
-            runtimeInputs = [ glyphbook-resolver ];
+            runtimeInputs = [ glyphbook-resolver pkgs.python3 ];
             text = ''
                export GLYPHBOOK_CATALOG=${self}/catalog/icons.json
                export GLYPHBOOK_INDEX=${self}/catalog/icons.index
@@ -113,6 +114,19 @@
         };
       });
       checks = forAllSystems (system: {
+        themes = assert import ./adapters/nix/themes.test.nix;
+          nixpkgs.legacyPackages.${system}.runCommand "glyphbook-theme-check" {
+            nativeBuildInputs = with nixpkgs.legacyPackages.${system}; [ python3 neovim jq ];
+          } ''
+            python ${self}/adapters/python/themes.test.py
+            python ${self}/adapters/python/parity.test.py ${nixpkgs.legacyPackages.${system}.writeText "glyphbook-theme-projection.json" (builtins.toJSON (let icons = import ./adapters/nix/nix.nix { theme = "github-dark-dimmed"; }; in {
+              inherit (icons) websites applications mini;
+            }))}
+            GLYPHBOOK_RESOLVER=${self.packages.${system}.glyphbook-resolver}/bin/glyphbook-resolver python ${self}/adapters/python/prepared.test.py
+            GLYPHBOOK_THEME=github-dark-dimmed sh ${self}/adapters/shell/glyphbook get website github.com | jq -e '.color == "#cdd9e5"'
+            GLYPHBOOK_ROOT=${self} nvim --headless -u NONE -l ${self}/adapters/lua/themes.test.lua
+            touch $out
+          '';
         home-manager = import ./adapters/nix/nix.test.nix {
           pkgs = nixpkgs.legacyPackages.${system};
           inherit home-manager nvf;
@@ -128,7 +142,8 @@
                 yamllint
               ];
             }
-            ''
+             ''
+               check-jsonschema --schemafile ${self}/themes/schema.json ${self}/themes/github-dark-dimmed.json
                check-jsonschema --schemafile ${self}/catalog/schema.json ${self}/catalog/icons.json
               yamllint -d relaxed ${self}/.github/workflows
                GLYPHBOOK_SKIP_NIX_TEST=1 bash ${self}/adapters/shell/shell.test.sh

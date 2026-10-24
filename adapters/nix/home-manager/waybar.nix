@@ -1,13 +1,27 @@
 { config, lib, ... }:
 let
-  inherit (config.glyphbook.icons) nerdFonts;
+  inherit (config.glyphbook.icons.forApp "waybar") nerdFonts;
   bluetooth = {
+    format = nerdFonts."fa-bluetooth".glyph;
     format-connected = nerdFonts."fa-bluetooth".glyph;
     format-disabled = nerdFonts."md-bluetooth_off".glyph;
-    format-icons = builtins.genList (_: nerdFonts."md-battery".glyph) 11;
+    format-icons = [
+      nerdFonts."md-battery_alert_bluetooth".glyph
+      nerdFonts."md-battery_10_bluetooth".glyph
+      nerdFonts."md-battery_20_bluetooth".glyph
+      nerdFonts."md-battery_30_bluetooth".glyph
+      nerdFonts."md-battery_40_bluetooth".glyph
+      nerdFonts."md-battery_50_bluetooth".glyph
+      nerdFonts."md-battery_60_bluetooth".glyph
+      nerdFonts."md-battery_70_bluetooth".glyph
+      nerdFonts."md-battery_80_bluetooth".glyph
+      nerdFonts."md-battery_90_bluetooth".glyph
+      nerdFonts."md-battery_bluetooth".glyph
+    ];
   };
   modules = {
     "hyprland/workspaces".format-icons = {
+      default = nerdFonts."cod-circle_filled".glyph;
       power-saver = nerdFonts."md-flash".glyph;
       active = nerdFonts."md-square_rounded".glyph;
       urgent = nerdFonts."fa-circle_exclamation".glyph;
@@ -21,8 +35,8 @@ let
       "8" = "8";
       "9" = "9";
     };
-    disk.format-critical = nerdFonts."md-harddisk".glyph;
-    cpu.format-critical = nerdFonts."md-chip".glyph;
+    disk.format-critical = nerdFonts."md-database_alert".glyph;
+    cpu.format-critical = nerdFonts."md-speedometer".glyph;
     memory.format-critical = nerdFonts."md-memory".glyph;
     battery = {
       format = "{icon}";
@@ -41,17 +55,20 @@ let
       ];
     };
     pulseaudio = {
-      format-bluetooth = nerdFonts."md-bluetooth".glyph;
-      format-bluetooth-muted = nerdFonts."md-bluetooth_off".glyph;
+      format-muted = nerdFonts."fa-volume_xmark".glyph;
+      format-bluetooth = nerdFonts."md-earbuds".glyph;
+      format-bluetooth-muted = nerdFonts."md-earbuds_off".glyph;
       format-source = nerdFonts."md-microphone".glyph;
       format-source-muted = nerdFonts."md-microphone_off".glyph;
       format-icons = {
-        speaker = nerdFonts."fa-volume_high".glyph;
-        handsfree = nerdFonts."fa-headphones".glyph;
-        headset = nerdFonts."fa-headphones".glyph;
+        headphones = nerdFonts."fa-headphones".glyph;
+        speaker = nerdFonts."md-speaker_wireless".glyph;
+        handsfree = nerdFonts."fa-headset".glyph;
+        headset = nerdFonts."fa-headset".glyph;
         phone = nerdFonts."fa-phone".glyph;
-        phone-muted = nerdFonts."fa-phone".glyph;
-        portable = nerdFonts."fa-volume_high".glyph;
+        phone-muted = nerdFonts."fa-phone_slash".glyph;
+        portable = nerdFonts."fa-phone".glyph;
+        car = nerdFonts."fa-car".glyph;
         default = [
           nerdFonts."fa-volume_off".glyph
           nerdFonts."fa-volume_down".glyph

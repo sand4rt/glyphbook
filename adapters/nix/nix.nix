@@ -4,10 +4,23 @@
   fallbackColor ? null,
   overrides ? { },
   apps ? { },
-  theme ? { },
-  polarity ? "dark",
-}:
+  theme ? null,
+  themeColors ? { },
+  polarity ? null,
+  _app ? null,
+}@args:
 let
+  themes = { github-dark-dimmed = builtins.fromJSON (builtins.readFile ../../themes/github-dark-dimmed.json); };
+  selectedTheme = if theme == null || builtins.isAttrs theme then { } else
+    themes.${theme} or (throw "Glyphbook: unknown theme '${theme}'");
+  palette = (selectedTheme.colors or { }) // (if builtins.isAttrs theme then theme else { }) // themeColors;
+  validColor = color: builtins.isString color && builtins.match "#[0-9a-fA-F]{6}" color != null;
+  checkedPalette = if builtins.all validColor (builtins.attrValues palette) then palette
+    else throw "Glyphbook: theme colors must be six-digit hex colors";
+  activePolarity = if polarity == null then selectedTheme.polarity or "dark" else polarity;
+  themeRole = role: checkedPalette.${role} or (throw "Glyphbook: unknown theme color role '${role}'");
+  colorUtils = import ./colors.nix;
+  inherit (colorUtils) contrast;
   catalogData = builtins.fromJSON (builtins.readFile catalog);
   configuredIcons = map (
     icon:
@@ -22,9 +35,9 @@ let
             builtins.head (
               builtins.filter (domain: domain != "*" && builtins.substring 0 2 domain != "*.") icon.domains
             )
-          } or (if builtins.isAttrs (icon.color or null) then icon.color.${polarity} or null else icon.color or null)
+           } or (if builtins.isAttrs (icon.color or null) then icon.color.${activePolarity} or null else icon.color or null)
         else
-          if builtins.isAttrs (icon.color or null) then icon.color.${polarity} or null else icon.color or null;
+          if builtins.isAttrs (icon.color or null) then icon.color.${activePolarity} or null else icon.color or null;
     }
   ) catalogData.icons;
   websiteFallback = builtins.head (
@@ -54,7 +67,7 @@ let
       else
         (records.${name} or { }) // override
     ) (overrides.${category} or { });
-  mini = {
+  rawMini = {
     default = categoryMap "default" "defaults";
     directory = categoryMap "directory" "directories";
     extension = categoryMap "extension" "extensions";
@@ -63,8 +76,10 @@ let
     lsp = categoryMap "lsp" "lsp";
     os = categoryMap "os" "operatingSystems";
   };
-  nerdFonts = categoryMap "nerdFont" "nerdFontNames";
-  symbols = categoryMap "symbol" "symbols";
+  rawNerdFonts = categoryMap "nerdFont" "nerdFontNames";
+  nerdFonts = builtins.mapAttrs (name: _: resolve { category = "nerdFont"; inherit name; }) rawNerdFonts;
+  rawSymbols = categoryMap "symbol" "symbols";
+  symbols = builtins.mapAttrs (name: _: resolve { category = "symbol"; inherit name; }) rawSymbols;
   websiteMap = categoryMap "website" "domains";
   applicationMap = categoryMap "application" "applications";
   colorFor = app: icon:
@@ -75,40 +90,61 @@ let
       configuredRole = policy.colorRole or null;
       policyRole = if configuredRole == null then "muted" else configuredRole;
       role = icon.colorRole or null;
-      themeColor = if role != null then theme.${role} or null else null;
+      themeColor = if role != null then themeRole role else null;
+      original = if themeColor != null then themeColor else icon.color or null;
+      readable = color: color != null && (checkedPalette ? background) && contrast color checkedPalette.background >= 3;
+      candidates = [ (policy.color or null) (checkedPalette.foregroundStrong or null) (checkedPalette.foreground or null) ]
+        ++ builtins.attrValues checkedPalette;
+      contrasting = builtins.filter readable candidates;
       policyColor =
         if mode == "none" then null
-        else if mode == "monochrome" then policy.color or (theme.${policyRole} or null)
-        else if mode == "role" then theme.${if configuredRole == null then "foreground" else configuredRole} or null
-        else if themeColor != null then themeColor else icon.color or null;
+        else if mode == "monochrome" then (if (policy.color or null) != null then policy.color else checkedPalette.${policyRole} or null)
+        else if mode == "role" then themeRole (if configuredRole == null then "foreground" else configuredRole)
+        else if mode == "contrast" && checkedPalette ? background && !(readable original) then
+          if contrasting == [ ] then throw "Glyphbook: theme has no icon color with 3:1 background contrast"
+          else builtins.head contrasting
+        else original;
     in
     policyColor;
-  websiteColorFor = app: icon:
-    let
-      policy = apps.${app}.colors or { };
-    in
-    icon.color or null;
-  resolve = { category, name, app ? null }:
+  explicitColorFor = override:
+    if override ? color && override ? colorRole then throw "Glyphbook: specify color or colorRole, not both"
+    else if override ? color then
+      if override.color == null || validColor override.color then override.color
+      else throw "Glyphbook: icon colors must be six-digit hex colors"
+    else themeRole override.colorRole;
+  resolve = { category, name, app ? _app }:
     let
       records =
         if category == "application" then applicationMap
         else if category == "website" then websiteMap
-        else if category == "symbol" then symbols
-        else mini.${category};
+        else if category == "symbol" then rawSymbols
+        else if category == "nerdFont" then rawNerdFonts
+        else rawMini.${category};
       global = records.${name} or (throw "Glyphbook: unknown ${category} matcher ${name}");
       globalOverride = overrides.${category}.${name} or { };
       appConfig = if app == null then { } else apps.${app} or { };
       appOverride = appConfig.overrides.${category}.${name} or { };
-      resolved = global // appOverride;
-      explicitColor = appOverride.color or globalOverride.color or null;
+       role = selectedTheme.roles.${category}.${name} or (global.colorRole or (
+         if selectedTheme != { } && (global.color or null) != null
+         then colorUtils.role global.color else null
+       ));
+      resolved = global // { colorRole = role; } // appOverride;
+      legacyColor = if category == "website" then colors.${name} or null else null;
+      fallback = if category == "website" && name == "*" then fallbackColor else null;
     in
-    resolved // { color = if appOverride ? color || globalOverride ? color then explicitColor else colorFor app resolved; };
+    builtins.seq checkedPalette (resolved // {
+      color = if appOverride ? color || appOverride ? colorRole then explicitColorFor appOverride
+        else if globalOverride ? color || globalOverride ? colorRole then explicitColorFor globalOverride
+        else if legacyColor != null then legacyColor
+        else if fallback != null then fallback
+        else colorFor app resolved;
+    });
 in
 catalogData
 // rec {
   icons = configuredIcons;
-  applications = applicationMap;
-  applicationGlyphs = builtins.mapAttrs (_: icon: icon.glyph) applicationMap;
+  applications = builtins.mapAttrs (name: _: resolve { category = "application"; inherit name; }) applicationMap;
+  applicationGlyphs = builtins.mapAttrs (_: icon: icon.glyph) applications;
   git = {
     modified = nerdFonts."oct-diff_modified";
     added = nerdFonts."oct-diff_added";
@@ -116,13 +152,14 @@ catalogData
     ignored = nerdFonts."oct-diff_ignored";
     deleted = nerdFonts."oct-diff_removed";
   };
+  diagnostics = {
+    error = nerdFonts."md-skull".glyph;
+    warn = nerdFonts."oct-shield".glyph;
+    info = nerdFonts."md-chevron_right_box".glyph;
+    hint = nerdFonts."md-lightbulb".glyph;
+  };
   nvim = {
-    diagnostics = {
-      error = nerdFonts."md-alert".glyph;
-      warn = nerdFonts."oct-shield".glyph;
-      info = nerdFonts."md-information".glyph;
-      hint = nerdFonts."md-lightbulb".glyph;
-    };
+    inherit diagnostics;
     completion = {
       Tag = nerdFonts."fa-tag".glyph;
       Text = nerdFonts."md-format_size".glyph;
@@ -168,11 +205,7 @@ catalogData
       editor = nerdFonts."dev-vim".glyph;
       fallbackFile = nerdFonts."custom-default".glyph;
       directory = nerdFonts."md-folder_outline".glyph;
-      diagnostics = {
-        error = nerdFonts."md-skull".glyph;
-        warn = nerdFonts."md-police_badge".glyph;
-        info = nerdFonts."md-chevron_right_box".glyph;
-        hint = nerdFonts."md-lightbulb".glyph;
+      diagnostics = diagnostics // {
         summary = nerdFonts."oct-pulse".glyph;
       };
       macro = nerdFonts."fa-bolt".glyph;
@@ -227,15 +260,23 @@ catalogData
           }
         ) (builtins.attrNames websiteMap)
       );
-  websitesFor = app: map (icon: icon // { color = websiteColorFor app icon; }) websiteRecords;
-  inherit mini;
+  websitesFor = app: map (icon:
+    let name = builtins.head icon.domains;
+    in (resolve { category = "website"; inherit name app; }) // { inherit (icon) domains priority; }
+  ) websiteRecords;
+  pythonWebsites = import ./python-websites.nix;
+  miniFor = app: builtins.mapAttrs (category: records: builtins.mapAttrs (name: _: resolve { inherit category name app; }) records) rawMini;
+  mini = miniFor _app;
   inherit nerdFonts;
   inherit symbols;
   inherit resolve;
-  websites = websiteRecords;
+  websites = websitesFor _app;
+  inherit themes;
+  themeColors = checkedPalette;
+  polarity = activePolarity;
+  forApp = app: import ./nix.nix (args // { _app = app; });
   websiteFallback = websiteMap."*".glyph;
   websiteFallbackColor =
-    overrides.website."*".color
-       or (if fallbackColor != null then fallbackColor else websiteFallback.color);
+    (resolve { category = "website"; name = "*"; }).color;
   websiteFallbackFor = app: (builtins.head (builtins.filter (icon: builtins.elem "*" icon.domains) (websitesFor app))).color;
 }

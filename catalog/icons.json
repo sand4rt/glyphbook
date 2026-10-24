@@ -31510,12 +31510,7 @@
         "dark": "#EAB308",
         "light": "#EAB308"
       },
-      "nerdFontNames": [ "oct-log" ],
-      "files": [
-        "README",
-        "README.md",
-        "README.txt"
-      ]
+      "nerdFontNames": [ "oct-log" ]
     },
     {
       "glyph": "",
@@ -33630,10 +33625,15 @@
     {
       "glyph": "󰂽",
       "color": {
-        "dark": "#0F6CBD",
-        "light": "#0F6CBD"
+        "dark": "#EAB308",
+        "light": "#EAB308"
       },
-      "nerdFontNames": [ "md-book_open" ]
+      "nerdFontNames": [ "md-book_open" ],
+      "files": [
+        "README",
+        "README.md",
+        "README.txt"
+      ]
     },
     {
       "glyph": "󰂾",

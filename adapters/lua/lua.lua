@@ -2,7 +2,18 @@ local M = {}
 
 local indexes = setmetatable({}, { __mode = 'k' })
 
-function M.load(path, decode)
+function M.load(path, decode, options)
+  if options and (options.theme or options.config) then
+    local quote = function(value) return "'" .. value:gsub("'", "'\\''") .. "'" end
+    local command = { 'python3', quote(assert(options.themeResolver, 'themeResolver is required')), '--catalog', quote(path) }
+    if options.theme then table.insert(command, '--theme ' .. quote(options.theme)) end
+    if options.config then table.insert(command, '--config ' .. quote(options.config)) end
+    if options.app then table.insert(command, '--app ' .. quote(options.app)) end
+    local process = assert(io.popen(table.concat(command, ' '), 'r'))
+    local output = process:read('*a')
+    assert(process:close(), 'Glyphbook theme resolution failed')
+    return decode(output)
+  end
   local file, err = io.open(path, 'rb')
   if not file then error(err) end
 
@@ -16,6 +27,17 @@ local function shell_quote(value)
 end
 
 function M.open(options)
+  if options and (options.theme or options.config) then
+    local catalog = M.load(assert(options.catalog, 'catalog is required for themes'), options.decode, options)
+    return {
+      get = function(category, name) return M.get(catalog, category:gsub('-', '_'), name) end,
+      get_application = function(name) return M.get_application(catalog, name) end,
+      get_website = function(host) return M.get_website(catalog, host) end,
+      get_file = function(path, filetype) return M.get_file(catalog, path, filetype) end,
+      list = function(category) return M.list(catalog, category:gsub('-', '_')) end,
+      map = function(category) return M.map(catalog, category:gsub('-', '_')) end,
+    }
+  end
   assert(options and options.resolver and options.index and options.records and options.decode,
     'resolver, index, records, and decode are required')
 
@@ -75,10 +97,11 @@ end
 local fields = {
   default = 'defaults', directory = 'directories', extension = 'extensions',
   file = 'files', editor_filetype = 'editorFiletypes', lsp = 'lsp', os = 'operatingSystems',
+  nerdFont = 'nerdFontNames', symbol = 'symbols',
 }
 
 local function normalize(category, name)
-  if category ~= 'file' and category ~= 'directory' and category ~= 'application' then
+  if category ~= 'file' and category ~= 'directory' and category ~= 'application' and category ~= 'nerdFont' and category ~= 'symbol' then
     return name:lower()
   end
   return name

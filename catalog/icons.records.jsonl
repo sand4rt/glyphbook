@@ -3654,7 +3654,7 @@
 {"glyph":"","color":{"dark":"#8B949E","light":"#8B949E"},"nerdFontNames":["oct-iterations"]}
 {"glyph":"","color":{"dark":"#8B949E","light":"#8B949E"},"nerdFontNames":["oct-kebab_horizontal"]}
 {"glyph":"","color":{"dark":"#8B949E","light":"#8B949E"},"nerdFontNames":["oct-key_asterisk"]}
-{"glyph":"","color":{"dark":"#EAB308","light":"#EAB308"},"nerdFontNames":["oct-log"],"files":["README","README.md","README.txt"]}
+{"glyph":"","color":{"dark":"#EAB308","light":"#EAB308"},"nerdFontNames":["oct-log"]}
 {"glyph":"","color":{"dark":"#8B949E","light":"#8B949E"},"nerdFontNames":["oct-moon"]}
 {"glyph":"","color":{"dark":"#8B949E","light":"#8B949E"},"nerdFontNames":["oct-move_to_bottom"]}
 {"glyph":"","color":{"dark":"#8B949E","light":"#8B949E"},"nerdFontNames":["oct-move_to_end"]}
@@ -3914,7 +3914,7 @@
 {"glyph":"󰂺","color":{"dark":"#8B949E","light":"#8B949E"},"nerdFontNames":["md-book"]}
 {"glyph":"󰂻","color":{"dark":"#8B949E","light":"#8B949E"},"nerdFontNames":["md-book_multiple"]}
 {"glyph":"󰂼","color":{"dark":"#8B949E","light":"#8B949E"},"nerdFontNames":["md-book_variant_multiple"]}
-{"glyph":"󰂽","color":{"dark":"#0F6CBD","light":"#0F6CBD"},"nerdFontNames":["md-book_open"]}
+{"glyph":"󰂽","color":{"dark":"#EAB308","light":"#EAB308"},"nerdFontNames":["md-book_open"],"files":["README","README.md","README.txt"]}
 {"glyph":"󰂾","color":{"dark":"#22C55E","light":"#22C55E"},"nerdFontNames":["md-book_open_blank_variant"],"editorFiletypes":["livebook"]}
 {"glyph":"󰂿","color":{"dark":"#8B949E","light":"#8B949E"},"nerdFontNames":["md-book_variant"]}
 {"glyph":"󰃀","color":{"dark":"#8B949E","light":"#8B949E"},"nerdFontNames":["md-bookmark"]}

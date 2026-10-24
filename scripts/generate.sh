@@ -162,6 +162,20 @@ jq \
    | map(.color = (simple_icon_color // .color))
    | map(.color = ($explicit_colors[.glyph] // .color))
    | map(with_entries(select(.value != [] and .value != null)))
+   # MiniIcons currently maps README names to an Octicons log glyph. Prefer
+   # the Material Design book glyph for this semantic filename matcher.
+   | map(
+       if .glyph == "󰂽" then
+         . + {
+           files: ((.files // []) + ["README", "README.md", "README.txt"] | unique),
+           color: { dark: "#EAB308", light: "#EAB308" }
+         }
+       elif .glyph == "" then
+         .files = ((.files // []) - ["README", "README.md", "README.txt"])
+       else .
+       end
+     )
+   | map(with_entries(select(.value != [] and .value != null)))
   | { schemaVersion: 2, icons: . }
 ' "$root/catalog/icons.json" > "$temporary/icons.unformatted.json"
 
