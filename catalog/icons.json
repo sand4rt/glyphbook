@@ -6072,7 +6072,8 @@
         "dark": "#8B949E",
         "light": "#8B949E"
       },
-      "nerdFontNames": [ "dev-chrome" ]
+      "nerdFontNames": [ "dev-chrome" ],
+      "applications": [ "chrome" ]
     },
     {
       "glyph": "",

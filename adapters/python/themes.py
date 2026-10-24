@@ -16,6 +16,10 @@ FIELDS = {
 }
 
 
+def normalize(category, name):
+    return name if category in ("file", "directory", "application", "symbol", "nerdFont") else name.lower()
+
+
 def contrast(foreground, background):
     def luminance(color):
         channels = [int(color[i:i + 2], 16) / 255 for i in (1, 3, 5)]
@@ -150,19 +154,22 @@ def main():
                 candidates.extend((category, "*." + ".".join(labels[i:])) for i in range(1, len(labels)))
                 candidates.append((category, "*"))
             else:
-                if category not in ("file", "directory", "application"):
-                    name = name.lower()
+                name = normalize(category, name)
                 candidates.append((category, name))
             for category, name in candidates:
                 field = FIELDS.get(category)
                 if field is None:
                     raise ValueError(f"unknown icon category: {category}")
-                record = next((icon for icon in catalog["icons"] if name in icon.get(field, [])), None)
-                override = config.get("overrides", {}).get(category, {}).get(name, {})
+                match = next(((icon, key) for icon in catalog["icons"] for key in icon.get(field, [])
+                              if normalize(category, key) == name), None)
+                key = next((key for key in config.get("overrides", {}).get(category, {})
+                            if normalize(category, key) == name), match[1] if match else name)
+                record = match[0] if match else None
+                override = config.get("overrides", {}).get(category, {}).get(key, {})
                 if record is None and "glyph" in override:
                     record = {field: [name], **override}
                 if record is not None:
-                    print(json.dumps(resolver.resolve(record, category, name, args.app)))
+                    print(json.dumps(resolver.resolve(record, category, key, args.app)))
                     return
             sys.exit(1)
         records = []

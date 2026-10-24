@@ -66,6 +66,29 @@ let
       ];
     }).config;
   generated = configuration { };
+  spotify = configuration {
+    glyphbook.apps.spotify-player.overrides.nerdFont."cod-heart_filled".color = "#123456";
+  };
+  spotifyNone = configuration { glyphbook.apps.spotify-player.colors.mode = "none"; };
+  spotifyMono = configuration {
+    glyphbook.apps.spotify-player.colors = { mode = "monochrome"; color = "#abcdef"; };
+  };
+  executableOverride = configuration {
+    glyphbook.apps.yazi.overrides.nerdFont."dev-terminal".color = "#abcdef";
+    glyphbook.targets.yazi.conditionColors.exec = "#123456";
+  };
+  executableNone = configuration { glyphbook.apps.yazi.colors.mode = "none"; };
+  executable = configuration {
+    glyphbook.apps.yazi.overrides.nerdFont."dev-terminal".color = "#abcdef";
+  };
+  stylixDefault = configuration {
+    imports = [ ./home-manager/stylix.nix ];
+    options.stylix.polarity = pkgs.lib.mkOption { default = "either"; };
+    config.lib.stylix.colors.withHashtag = builtins.listToAttrs (map (name: {
+      inherit name;
+      value = "#123456";
+    }) [ "base00" "base03" "base05" "base06" "base08" "base09" "base0A" "base0B" "base0C" "base0D" "base0E" "base0F" ]);
+  };
   themed = configuration {
     glyphbook.theme = pkgs.lib.mkForce "github-dark-dimmed";
     glyphbook.themeColors.foregroundStrong = "#ffffff";
@@ -129,6 +152,13 @@ let
   };
   lib = pkgs.lib;
 in
+assert (builtins.head spotify.programs.spotify-player.themes).component_style.like.fg == "#123456";
+assert spotifyNone.programs.spotify-player.themes == [ ];
+assert (builtins.head spotifyMono.programs.spotify-player.themes).component_style.like.fg == "#abcdef";
+assert (builtins.head (builtins.filter (rule: rule."if" == "exec") executable.programs.yazi.theme.icon.prepend_conds)).fg == "#abcdef";
+assert (builtins.head (builtins.filter (rule: rule."if" == "exec") executableOverride.programs.yazi.theme.icon.prepend_conds)).fg == "#123456";
+assert !((builtins.head (builtins.filter (rule: rule."if" == "exec") executableNone.programs.yazi.theme.icon.prepend_conds)) ? fg);
+assert stylixDefault.glyphbook.polarity == null;
 assert builtins.any (
   rule: rule.name == "project" && rule.text == "P" && !(rule ? fg)
 ) generated.programs.yazi.theme.icon.dirs;

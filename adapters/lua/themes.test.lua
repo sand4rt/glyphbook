@@ -8,6 +8,8 @@ local icons = glyphbook.open({
 })
 assert(icons.get_website('https://github.com/').color == '#cdd9e5')
 assert(icons.get('website', 'github.com').color == '#cdd9e5')
+assert(icons.map('website')['github.com'].color == '#cdd9e5')
+assert(icons.map('website')['*.github.com'] == nil)
 assert(icons.get_file('example.nix').color ~= nil)
 assert(icons.map('editor-filetype').nix.color ~= nil)
 print('Lua theme checks passed')

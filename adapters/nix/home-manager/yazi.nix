@@ -33,7 +33,10 @@ let
       in
       conditionIcons ++ [
         (defaultRule "directory")
-        { "if" = "exec"; text = icons.nerdFonts."dev-terminal".glyph; }
+        ({ "if" = "exec"; text = icons.nerdFonts."dev-terminal".glyph; }
+          // lib.optionalAttrs (icons.nerdFonts."dev-terminal".color != null) {
+            fg = icons.nerdFonts."dev-terminal".color;
+          })
         (defaultRule "file")
       ];
   };

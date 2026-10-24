@@ -5,6 +5,20 @@ import sys
 from themes import Resolver, contrast
 
 root = Path(__file__).resolve().parents[2]
+import tempfile
+with tempfile.TemporaryDirectory() as directory:
+    config_path = Path(directory) / "config.json"
+    config_path.write_text(json.dumps({"theme": "github-dark-dimmed", "overrides": {
+        "symbol": {"Build": {"glyph": "B"}},
+        "extension": {"FOO": {"glyph": "X", "color": "#123456"}},
+    }}))
+    for category, name, operation, glyph in (("symbol", "Build", "get", "B"),
+                                              ("extension", "foo", "get", "X"),
+                                              ("", "example.FOO", "file", "X")):
+        result = subprocess.check_output([sys.executable, str(root / "adapters/python/themes.py"),
+            "--catalog", str(root / "catalog/icons.json"), "--config", str(config_path),
+            "--lookup", operation, "--category", category, "--name", name])
+        assert json.loads(result)["glyph"] == glyph
 explicit = {"color": "#123456"}
 for policy in ({"mode": "role", "colorRole": "missing"}, {"mode": "contrast"}):
     config = {"themeColors": {"background": "#000000", "foreground": "#000000"},

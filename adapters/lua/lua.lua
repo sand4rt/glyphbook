@@ -179,11 +179,12 @@ function M.list(catalog, category)
 end
 
 function M.map(catalog, category)
-  if category ~= 'application' and fields[category] == nil then
+  if category ~= 'application' and category ~= 'website' and fields[category] == nil then
     error('unknown icon category: ' .. tostring(category))
   end
   local result = {}
-  for name, icon in pairs(get_index(catalog).maps[category]) do result[name] = icon end
+  local index = get_index(catalog)
+  for name, icon in pairs(category == 'website' and index.domains or index.maps[category]) do result[name] = icon end
   return result
 end
 
