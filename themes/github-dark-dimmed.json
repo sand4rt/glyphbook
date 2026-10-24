@@ -6,6 +6,7 @@
     "foreground": "#adbac7",
     "foregroundStrong": "#cdd9e5",
     "muted": "#768390",
+    "subtle": "#8b949e",
     "red": "#f47067",
     "orange": "#e0823d",
     "yellow": "#c69026",
@@ -16,6 +17,9 @@
     "pink": "#c96198"
   },
   "roles": {
+    "default": {
+      "directory": "subtle"
+    },
     "website": {
       "github.com": "foregroundStrong",
       "*.github.com": "foregroundStrong",

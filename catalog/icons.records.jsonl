@@ -716,7 +716,7 @@
 {"glyph":"","color":{"dark":"#EE672F","light":"#EE672F"},"nerdFontNames":["dev-magento"],"domains":["magento.com","*.magento.com"]}
 {"glyph":"","color":{"dark":"#8B949E","light":"#8B949E"},"nerdFontNames":["dev-awk"]}
 {"glyph":"","color":{"dark":"#0678BE","light":"#0678BE"},"nerdFontNames":["dev-drupal"],"domains":["drupal.org","*.drupal.org"]}
-{"glyph":"","color":{"dark":"#8B949E","light":"#8B949E"},"nerdFontNames":["dev-chrome"]}
+{"glyph":"","color":{"dark":"#8B949E","light":"#8B949E"},"nerdFontNames":["dev-chrome"],"applications":["chrome"]}
 {"glyph":"","color":{"dark":"#8B949E","light":"#8B949E"},"nerdFontNames":["dev-ie"]}
 {"glyph":"","color":{"dark":"#E50914","light":"#E50914"},"nerdFontNames":["dev-firefox"]}
 {"glyph":"","color":{"dark":"#FF1B2D","light":"#FF1B2D"},"nerdFontNames":["dev-opera"]}

@@ -30,6 +30,7 @@ assert (github themed).color == "#cdd9e5";
 assert themed.websiteFallbackColor == themed.themeColors.muted;
 assert (configured { theme = "github-dark-dimmed"; themeColors.blue = "#123456"; }).mini.editorFiletype.nix.color == "#123456";
 assert (themed.forApp "lsd").mini.editorFiletype.nix.color == themed.themeColors.blue;
+assert (themed.forApp "lig").mini.default.directory.color == "#8b949e";
 assert (github custom).color == "#ffffff" && (github custom).glyph == "G";
 assert (overridden.resolve { category = "website"; name = "github.com"; app = "rofi"; }).glyph == "R";
 assert (overridden.resolve { category = "website"; name = "github.com"; app = "rofi"; }).color == "#539bf5";
