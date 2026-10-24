@@ -6,6 +6,7 @@
 }:
 let
   cfg = config.glyphbook.targets.neovim;
+  mini = config.glyphbook.icons.miniFor "neovim";
   settings = lib.mapAttrs (
     _:
     lib.mapAttrs (
@@ -17,7 +18,7 @@ let
         hl = "Glyphbook" + builtins.hashString "sha256" icon.color;
       }
     )
-   ) (config.glyphbook.icons.mini // { filetype = config.glyphbook.icons.mini.editorFiletype; });
+   ) (mini // { filetype = mini.editorFiletype; });
   json = builtins.toJSON (lib.recursiveUpdate settings cfg.settings);
   settingsFile = pkgs.writeText "glyphbook-mini-icons.json" json;
 in
@@ -47,7 +48,7 @@ in
                     vim.api.nvim_set_hl(0, "Glyphbook${builtins.hashString "sha256" icon.color}", { fg = "${icon.color}" })
                   ''
                 ) icons
-              ) config.glyphbook.icons.mini
+               ) mini
             )
           )
         )}

@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Glyphbook color theme",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["name", "polarity", "colors"],
+  "properties": {
+    "name": { "type": "string", "minLength": 1 },
+    "polarity": { "enum": ["dark", "light"] },
+    "colors": {
+      "type": "object",
+      "required": ["background", "foreground", "foregroundStrong", "muted"],
+      "additionalProperties": { "type": "string", "pattern": "^#[0-9a-fA-F]{6}$" }
+    },
+    "roles": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": { "type": "string", "minLength": 1 }
+      }
+    }
+  }
+}

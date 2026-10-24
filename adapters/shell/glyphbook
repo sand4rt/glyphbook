@@ -3,6 +3,7 @@ set -eu
 
 root=$(CDPATH= cd -- "$(dirname "$0")/../.." && pwd)
 export GLYPHBOOK_CATALOG=${GLYPHBOOK_CATALOG:-"$root/catalog/icons.json"}
+export GLYPHBOOK_THEME_RESOLVER=${GLYPHBOOK_THEME_RESOLVER:-"$root/adapters/python/themes.py"}
 . "$root/adapters/shell/shell.sh"
 
 command=${1:-}

@@ -1,7 +1,7 @@
 { config, lib, ... }:
 let
   cfg = config.glyphbook.targets.yazi;
-  icons = config.glyphbook.icons;
+  icons = config.glyphbook.icons.forApp "yazi";
   yaziRule = name: icon: {
     inherit name;
     text = icon.glyph;
@@ -17,7 +17,6 @@ let
     { "if" = "sock"; text = icons.nerdFonts."fa-tty".glyph; }
     { "if" = "sticky"; text = icons.nerdFonts."fa-paint_brush".glyph; }
     { "if" = "dummy"; text = icons.nerdFonts."fa-remove_sign".glyph; }
-    { "if" = "exec"; text = icons.nerdFonts."dev-terminal".glyph; }
   ];
   icon = {
     dirs = yaziRules icons.mini.directory;
@@ -32,12 +31,19 @@ let
           fg = icons.mini.default.${category}.color;
         };
       in
-      conditionIcons ++ [ (defaultRule "directory") (defaultRule "file") ];
+      conditionIcons ++ [
+        (defaultRule "directory")
+        ({ "if" = "exec"; text = icons.nerdFonts."dev-terminal".glyph; }
+          // lib.optionalAttrs (icons.nerdFonts."dev-terminal".color != null) {
+            fg = icons.nerdFonts."dev-terminal".color;
+          })
+        (defaultRule "file")
+      ];
   };
   notify = {
-    icon_info = icons.nerdFonts."md-information".glyph;
-    icon_warn = icons.nerdFonts."oct-shield".glyph;
-    icon_error = icons.nerdFonts."md-skull".glyph;
+    icon_info = icons.diagnostics.info;
+    icon_warn = icons.diagnostics.warn;
+    icon_error = icons.diagnostics.error;
   };
   conditionRules = map (
     icon:

@@ -7,10 +7,13 @@ let
       name:
       builtins.elem name [
         "glyph"
-        "color"
+          "color"
+          "colorRole"
       ]
     ) (builtins.attrNames override)
     && (!(override ? glyph) || (builtins.isString override.glyph && override.glyph != ""))
+    && (!(override ? colorRole) || (builtins.isString override.colorRole && override.colorRole != ""))
+    && !(override ? color && override ? colorRole)
     && (
       !(override ? color)
       || override.color == null
@@ -45,13 +48,18 @@ in
       description = "Fallback website color.";
     };
     theme = lib.mkOption {
+      type = lib.types.nullOr (lib.types.either lib.types.str (lib.types.attrsOf (lib.types.strMatching "#[0-9a-fA-F]{6}")));
+      default = null;
+      description = "Built-in color theme name. Legacy inline color sets remain supported; prefer themeColors.";
+    };
+    themeColors = lib.mkOption {
       type = lib.types.attrsOf (lib.types.strMatching "#[0-9a-fA-F]{6}");
       default = { };
-      description = "Normalized named theme colors, optionally supplied by Stylix.";
+      description = "Named palette color overrides, with or without a built-in theme.";
     };
     polarity = lib.mkOption {
-      type = lib.types.enum [ "light" "dark" ];
-      default = "dark";
+      type = lib.types.nullOr (lib.types.enum [ "light" "dark" ]);
+      default = null;
       description = "Active color-scheme polarity used by contrast-aware icon policies.";
     };
     apps = lib.mkOption {
@@ -96,7 +104,9 @@ in
           "file"
           "editorFiletype"
           "lsp"
-          "os"
+           "os"
+           "nerdFont"
+           "symbol"
         ]
         (
           _:
@@ -113,6 +123,9 @@ in
     };
   };
 
+  config.warnings = lib.optional (builtins.isAttrs cfg.theme)
+    "glyphbook.theme as a color set is deprecated; move inline colors to glyphbook.themeColors.";
+
   config.glyphbook.icons = import ../nix.nix {
     inherit (cfg)
       catalog
@@ -121,6 +134,8 @@ in
       overrides
       apps
       theme
+      themeColors
+      polarity
       ;
   };
 }
