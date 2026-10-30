@@ -51037,10 +51037,11 @@
     {
       "glyph": "󰣞",
       "color": {
-        "dark": "#8B949E",
-        "light": "#8B949E"
+        "dark": "#F97316",
+        "light": "#F97316"
       },
-      "nerdFontNames": [ "md-folder_edit" ]
+      "nerdFontNames": [ "md-folder_edit" ],
+      "directories": [ "Projects" ]
     },
     {
       "glyph": "󰣟",
