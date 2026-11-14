@@ -24,7 +24,9 @@ let
 in
 {
   options.glyphbook.targets.neovim = {
-    enable = lib.mkEnableOption "Glyphbook defaults for Neovim's mini.icons";
+    enable = lib.mkEnableOption "Glyphbook defaults for Neovim's mini.icons" // {
+      default = true;
+    };
     settings = lib.mkOption {
       type = (pkgs.formats.json { }).type;
       default = { };

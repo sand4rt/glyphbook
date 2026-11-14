@@ -82,7 +82,9 @@ in
 {
   options.glyphbook.targets.waybar = {
     bluetooth = {
-      enable = lib.mkEnableOption "Glyphbook Bluetooth icons for Waybar";
+      enable = lib.mkEnableOption "Glyphbook Bluetooth icons for Waybar" // {
+        default = true;
+      };
       bars = lib.mkOption {
         type = lib.types.listOf lib.types.str;
         default = [ ];
@@ -90,7 +92,9 @@ in
       };
     };
     modules = {
-      enable = lib.mkEnableOption "Glyphbook built-in module icons for Waybar";
+      enable = lib.mkEnableOption "Glyphbook built-in module icons for Waybar" // {
+        default = true;
+      };
       bars = lib.mkOption {
         type = lib.types.listOf lib.types.str;
         default = [ ];

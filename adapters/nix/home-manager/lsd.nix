@@ -4,7 +4,9 @@ let
   glyphs = builtins.mapAttrs (_: icon: icon.glyph);
 in
 {
-  options.glyphbook.targets.lsd.enable = lib.mkEnableOption "Glyphbook defaults for lsd";
+  options.glyphbook.targets.lsd.enable = lib.mkEnableOption "Glyphbook defaults for lsd" // {
+    default = true;
+  };
 
   config = lib.mkIf (config.glyphbook.enable && config.glyphbook.targets.lsd.enable && config.programs.lsd.enable) {
     programs.lsd.icons = lib.mapAttrs (_: lib.mkDefault) {
