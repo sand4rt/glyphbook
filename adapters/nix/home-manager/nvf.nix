@@ -9,7 +9,9 @@ in
     nvf.homeManagerModules.default
   ];
 
-  options.glyphbook.targets.nvf.enable = lib.mkEnableOption "Glyphbook icon defaults for NVF";
+  options.glyphbook.targets.nvf.enable = lib.mkEnableOption "Glyphbook icon defaults for NVF" // {
+    default = true;
+  };
 
   config = lib.mkIf (config.programs.nvf.enable && config.glyphbook.enable && cfg.enable) {
     programs.nvf.settings.vim = {
